@@ -15,3 +15,28 @@
  |devices Greg wants to play |       from his phone with minimal hassle |         * Play against friends |
  |games easily and anywhere |        or setup time  |                             * Play for free |
                                                                                   * Advance in single player mode 
+                                                                                  
+                                                                                  
+  Built with: 
+  
+  - Node.Js
+  - Express
+  - Handlebars
+  - SQL
+  - Heroku
+  
+  
+  Authors:
+  
+- Abdisa Tuffa - Back end
+- Robert Queeney- Back end
+- Madison Koch- Front End and Project Management
+- Cavan Wagg - Back end
+- Solomon Buzoya - Back end
+
+Links:
+
+User Story: 
+Project Management: https://trello.com/b/Fc6l35sc/project-2
+
+
