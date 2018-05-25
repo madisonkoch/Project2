@@ -41,5 +41,5 @@ Project Management: https://trello.com/b/Fc6l35sc/project-2
 
 
 - Desktop View
-  * ![Framework](/framework.pdf)
+  * ![Framework](framework.pdf)
 
