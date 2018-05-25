@@ -36,7 +36,7 @@
 
 Links:
 
-User Story: 
+User Story: https://docs.google.com/document/d/1DEGkiEWaFUWhT1WGT--d1PlNyBIjmNodvXi21hgarL8/edit?usp=sharing
 Project Management: https://trello.com/b/Fc6l35sc/project-2
 
 
