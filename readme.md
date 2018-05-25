@@ -40,3 +40,6 @@ User Story: https://docs.google.com/document/d/1DEGkiEWaFUWhT1WGT--d1PlNyBIjmNod
 Project Management: https://trello.com/b/Fc6l35sc/project-2
 
 
+- Desktop View
+  * ![Framework] (framework.pdf)
+
