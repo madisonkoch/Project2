@@ -1,19 +1,27 @@
 var mysql = require("mysql"); 
 
-// abdisa will be adding code here for the database connection(s)
-let connection;
+
+var connection;
+
+//Connection declaration
 if(process.env.JAWSDB_URL) {
   //Heroku deployment
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   //local host
     connection = mysql.createConnection({
-        root: 3000,
+        port: 3306,
         host: "localhost",
         user: "root",
-        password: "",
-        database: "",
+        password: process.env.PASSWORD,
+        database: "NFL_DB",
     });
 };
-
-// project-two-nfl.herokuapp.com
+//make connection
+connection.connect(function(err){
+  if(err){
+    console.error("error connecting: "+err.stack);
+    return;
+  }
+  console.log("connected as id "+connection.threadId);
+});

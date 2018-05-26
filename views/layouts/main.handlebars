@@ -2,12 +2,32 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-		<title>MVC With Cats!</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>Project 2</title>
+	
+	{{!-- Jquery --}}
 		<script src="https://code.jquery.com/jquery.js"></script>
-		<script src="/assets/js/cats.js"></script>
+		
+	{{!-- Styling: CSS / Bootstrap / Google Fonts--}}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
+		{{!-- google font --}}
+
 	</head>
 	<body>
-		{{{ body }}}
+		<header>
+			<div class="row">
+				<h1 class="text-center">Project Name</h1>
+				<div>
+					<img src="/assets/images/go-back-arrow.png" alt="back-arrow" class="img-circle">
+				</div>
+			</div>
+		</header>
+			{{{ body }}}
+
+		{{!--JS file  --}}
+		{{!-- <script src="/assets/js/app.js"></script> --}}
 	</body>
 </html>
