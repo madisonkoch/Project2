@@ -12,3 +12,11 @@ CREATE TABLE teams (
   D_pass_YPR DECIMAL(10,1) NULL,
   PRIMARY KEY(id)
 );
+
+CREATE TABLE players (
+
+  id INT AUTO_INCREMENT,
+  player VARCHAR(50) NOT NULL,
+  points INT (10) NOT NUll,
+  PRIMARY KEY(id)
+);
