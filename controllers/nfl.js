@@ -6,7 +6,7 @@ const router = express.Router();
 // let nfl = (../models/nfl.js)
 
 router.get("/", function(req, res){
-  // response
+    res.send('Wiki home page');
 });
 
 router.post("/api/teams", function(req, res){
@@ -16,3 +16,5 @@ router.post("/api/teams", function(req, res){
 router.put("/api/teams/:id", function(req, res){
     //response
 })
+
+module.exports = router;
