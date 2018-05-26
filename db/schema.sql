@@ -4,19 +4,19 @@ CREATE DATABASE NFL_DB;
 USE NFL_DB;
 
 CREATE TABLE teams (
-  id int AUTO_INCREMENT,
   team_name VARCHAR(50) NOT NULL,
   O_rush_YPA DECIMAL(10,1) NULL,
   O_pass_YPA DECIMAL(10,1) NULL,
   D_rush_YPA DECIMAL(10,1) NULL,
   D_pass_YPR DECIMAL(10,1) NULL,
-  PRIMARY KEY(id)
+  primary key(team_name)
 );
 
-CREATE TABLE players (
+CREATE TABLE users (
 
-  id INT AUTO_INCREMENT,
-  player VARCHAR(50) NOT NULL,
+  username VARCHAR(50) NOT NULL UNIQUE,
+  wins INT (10) NOT NULL,
+  losses INT (10) NOT NULL,
   points INT (10) NOT NUll,
-  PRIMARY KEY(id)
+  primary key(username)
 );
