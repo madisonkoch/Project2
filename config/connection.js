@@ -4,7 +4,7 @@ require('dotenv').config();
 
 var connection;
 
-//Connection declaration
+
 if(process.env.JAWSDB_URL) {
   //Heroku deployment
     connection = mysql.createConnection(process.env.JAWSDB_URL);
