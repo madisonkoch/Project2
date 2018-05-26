@@ -15,8 +15,6 @@ CREATE TABLE teams (
 CREATE TABLE users (
 
   username VARCHAR(50) NOT NULL UNIQUE,
-  wins INT (10) NOT NULL,
-  losses INT (10) NOT NULL,
   points INT (10) NOT NUll,
   primary key(username)
 );
