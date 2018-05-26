@@ -62,3 +62,15 @@ INSERT INTO teams (team_name, O_rush_YPA, O_pass_YPA, D_rush_YPA, D_pass_YPR)
 VALUES ("Buffalo", 4.1, 6.5, 4.3, 10.4);
 INSERT INTO teams (team_name, O_rush_YPA, O_pass_YPA, D_rush_YPA, D_pass_YPR)
 VALUES ("Chicago", 4.2, 6.5, 4, 10.7);
+
+INSERT INTO players (player, points)
+VALUES ("Abdisa", 0, 2, 10);
+INSERT INTO players (player, points)
+VALUES ("Solomon", 5, 1, 17);
+INSERT INTO players (player, points)
+VALUES ("Madison", 3, 4, 16);
+INSERT INTO players (player, points)
+VALUES ("Robert", 6, 3, 9);
+INSERT INTO players (player, points)
+VALUES ("Gregg", 5, 1, 9);
+
