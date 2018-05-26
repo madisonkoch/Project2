@@ -19,8 +19,10 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// neet to export and use routes
-//app.use(routes);
+let routes = require("./controllers/nfl.js");
+
+app.use(routes);
+
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
