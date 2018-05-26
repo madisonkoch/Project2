@@ -1,6 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-require("dotenv").config();
+
+require('dotenv').config(); 
+var connection = require("./config/connection.js")
 
 var app = express(); 
 
