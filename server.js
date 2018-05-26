@@ -20,7 +20,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // neet to export and use routes
-//app.use(routes);
+app.use(routes);
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
