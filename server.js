@@ -1,6 +1,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+require('dotenv').config(); 
+var connection = require("./config/connection.js")
+
 var app = express(); 
 
 var PORT = process.env.PORT || 3000;
@@ -17,9 +20,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // neet to export and use routes
-// app.use(routes);
+//app.use(routes);
 
 app.listen(PORT, function() {
-    console.log("App now listening at localhost:" + PORT);
+  console.log("Server listening on: http://localhost:" + PORT);
   });
   

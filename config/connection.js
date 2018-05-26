@@ -1,10 +1,10 @@
 var mysql = require("mysql"); 
+require('dotenv').config(); 
 
-//require th env password
-require("dotenv").config();
 
-// abdisa will be adding code here for the database connection(s)
-let connection;
+var connection;
+
+
 if(process.env.JAWSDB_URL) {
   //Heroku deployment
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -14,9 +14,20 @@ if(process.env.JAWSDB_URL) {
         port: 3306,
         host: "localhost",
         user: "root",
-        password: "Koji@191991",
-        database: "z38xzhv5bfjbkmeg",
+        password: process.env.PASSWORD,
+        database: "NFL_DB",
     });
 };
 
+//make connection
+connection.connect(function(err) {
+  if (err) {
+    console.error("error connecting: " + err.stack);
+    return;
+  }
+  console.log("connected as id " + connection.threadId);
+});
+
+module.exports = connection;
 // project-two-nfl.herokuapp.com
+
