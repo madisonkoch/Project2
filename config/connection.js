@@ -1,8 +1,10 @@
 var mysql = require("mysql"); 
 require('dotenv').config(); 
 
-// abdisa will be adding code here for the database connection(s)
-let connection;
+
+var connection;
+
+//Connection declaration
 if(process.env.JAWSDB_URL) {
   //Heroku deployment
     connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -17,6 +19,7 @@ if(process.env.JAWSDB_URL) {
     });
 };
 
+//make connection
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -27,3 +30,4 @@ connection.connect(function(err) {
 
 module.exports = connection;
 // project-two-nfl.herokuapp.com
+
