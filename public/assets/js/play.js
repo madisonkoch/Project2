@@ -17,11 +17,32 @@ const offPass = 8.5;
 // then big play call on def 
 // if both are false then random number between off and def yrds range
 
-const bigPlayGen = (playPercentage) => {
-    let bigPlayArray = []
+// const bigPlayGen = (playPercentage) => {
+//     let bigPlayArray = []
     
-    for (let i = 0; i < playPercentage ; i++) {
-        const element = array[i];
+//     for (let i = 0; i < playPercentage ; i++) {
+//         const element = array[i];
         
+//     }
+// }
+
+var counter = {
+    bigPlay: bigPlay
+}; 
+
+var probabilitilized = new Probability({
+    p: '50%', 
+    f: function(){
+        counter[bigPlay]++; 
     }
+});
+
+for (let i = 0; i < 100; i++){
+    probabilitilized(); 
 }
+
+console.log(bigPlay)
+
+
+
+
