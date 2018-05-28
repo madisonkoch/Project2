@@ -1,4 +1,8 @@
-// const probability = require('./probability.js')
+
+const offRun = 6.2
+const defRun = 3.4
+let yardage = 20
+
 var toString = Object.prototype.toString,
 slice = Array.prototype.slice;
 function Probability() {
@@ -36,45 +40,37 @@ function Probability() {
         return functions[i].apply(this, arguments);
     };
 }
-// function probabilitilized() {
-//     var random = Math.random();
-//     for (i = 0, l = probas.length - 1; i < l && random >= probas[i]; i++) {
-//         /* intentionally left empty */
-//     }
-//     return functions[i].apply(this, arguments);
-// };
-// var counter = {
-//     bigPlay: 0
-// }; 
 
-// var probabilitilized = new Probability({
-//     p: '50%', 
-//     f: function(){
-//         counter[bigPlay]++; 
-//     }
-// });
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; 
+    }
 
-// for (let i = 0; i < 100; i++){
-//     probabilitilized(); 
-// }
+    function bigRunPlay() {
+        console.log("Holy cow!  The vikings strike for a " + getRandomInt(80, 20) + " yard play!")
+        console.log("Big m-fing play!!!")
+    }
 
-function bigOffPlay() {
-    console.log("Big m-fing play!!!")
-}
+    function bigDefPlay() {
+        console.log("Oh no!  The defense comes up big with a tackle for a " + getRandomInt(8, 1) +" yard loss")
+        console.log("Strip sack!!")
+    }
 
-function bigDefPLay() {
-    console.log("Strip sack!!")
-}
+    function normalRun(){
+        console.log("The play is good for " + getRandomInt(offRun, defRun) + " yards."); 
+        console.log("Do the simple play")
+    }
 
-function normalPlay(){
-    console.log("Do the simple play")
-}
+    function noGain(){
+        console.log("The defense comes up big and stuffs the runner for no gain")
+    }
 
-var probabilitilized = new Probability({p: "10%", f: bigOffPlay}, {p:"2%", f: bigDefPLay}, {p: "88%", f: normalPlay})
+    var probabilitilized = new Probability({p: "8%", f: bigRunPlay}, {p:"8%", f: bigDefPlay}, {p: "60%", f: normalRun}, {p: "14%", f:noGain})
 
-for (let i = 0; i < 1; i++){
-    probabilitilized(); 
-}
+    for (let i = 0; i < 1; i++){
+        probabilitilized(); 
+    }
 
-// console.log(prob)
+    // console.log(prob)
 
