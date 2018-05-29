@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 require('dotenv').config(); 
-var connection = require("./config/connection.js")
+const db = require("./models");
 
 var app = express(); 
 
@@ -19,12 +19,14 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-let routes = require("./controllers/nfl.js");
-
-app.use(routes);
+require("./controllers/nfl.js")(app);
 
 
-app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
-  });
+db.sequelize.sync({ force: false }).then(function() {
+  app.listen(PORT, function() {
+    console.log("Server listening on: http://localhost:" + PORT);
+    });
+
+})
+
   
