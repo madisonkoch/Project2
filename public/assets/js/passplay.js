@@ -53,7 +53,7 @@ function bigDefPlay (){
     let yards = getRandomInt(8, 1)
     let roundedYards = Math.round( yards * 10 ) / 10;
     console.log(`Oooohh.  The Vikings got blown up by a sack for a loss of ${roundedYards} yards!`)
-    startingYardage = startingYardage + roundedYards
+    startingYardage = startingYardage - roundedYards
     console.log(startingYardage)
     return startingYardage
 }

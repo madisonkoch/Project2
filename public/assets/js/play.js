@@ -1,7 +1,7 @@
 
 const offRun = 6.2
 const defRun = 3.4
-let yardage = 20
+let startingYardage = 20
 
 var toString = Object.prototype.toString,
 slice = Array.prototype.slice;
@@ -48,18 +48,31 @@ function Probability() {
     }
 
     function bigRunPlay() {
-        console.log("Holy cow!  The vikings strike for a " + getRandomInt(80, 20) + " yard play!")
-        console.log("Big m-fing play!!!")
+        let yards = getRandomInt(80, 20)
+        let roundedYards = Math.round( yards * 10 ) / 10;
+        console.log(`Holy cow!  The vikings strike for a ${roundedYards} yard play!`)
+        startingYardage = startingYardage + roundedYards
+        console.log(startingYardage)
+        return startingYardage
     }
 
-    function bigDefPlay() {
-        console.log("Oh no!  The defense comes up big with a tackle for a " + getRandomInt(8, 1) +" yard loss")
-        console.log("Strip sack!!")
+    function bigDefPlay (){
+        let yards = getRandomInt(8, 1)
+        let roundedYards = Math.round( yards * 10 ) / 10;
+        console.log(`Holy smokes!  The defense just stuffed the vikings for a loss of ${roundedYards} yards!`)
+        startingYardage = startingYardage - roundedYards
+        console.log(startingYardage)
+        return startingYardage
     }
+    
 
     function normalRun(){
-        console.log("The play is good for " + getRandomInt(offRun, defRun) + " yards."); 
-        console.log("Do the simple play")
+        let yards = getRandomInt(offRun, defRun)
+        let roundedYards = Math.round( yards * 10 ) / 10;
+        console.log(`The Vikings pound the ball for a gain of ${roundedYards} yards!`)
+        startingYardage = startingYardage + roundedYards
+        console.log(startingYardage)
+        return startingYardage
     }
 
     function noGain(){
