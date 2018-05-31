@@ -1,3 +1,45 @@
-html {
-    background-color: black ;
-}
+@import url(reset.css);
+
+/* Text */
+    h2,p,li{
+        color: white;
+    }
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 30px;
+    }
+
+/* Header */
+    header {
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        box-shadow: 0 -5px 31px 7px black;
+        border-bottom: solid;
+        border-bottom-color: #1d1c1ced;
+        border-bottom-width: 1px;
+    }
+    #header-back-arrow{
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        height: 30px;
+        border: solid;
+        border-width: 3px;
+        border-color: white;
+    }
+    #header-back-arrow:hover{
+        color:purple;
+    }
+ /* Body */
+    body {
+        background-image: url("/assets/images/purpleBack-dark.png");
+    }
+
+/* Footer */
+    footer {
+        background-color: black ;
+    }

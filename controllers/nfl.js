@@ -6,7 +6,8 @@ const router = express.Router();
 // let nfl = (../models/nfl.js)
 
 router.get("/", function(req, res){
-    res.send('Wiki home page');
+    //have index.handlebars render in browser
+    res.render("home"); //to have data returned to route use res.render("index", data-reference);
 });
 
 router.post("/api/teams", function(req, res){
