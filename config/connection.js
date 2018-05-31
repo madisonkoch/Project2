@@ -30,4 +30,3 @@ connection.connect(function(err) {
 
 module.exports = connection;
 // project-two-nfl.herokuapp.com
-
