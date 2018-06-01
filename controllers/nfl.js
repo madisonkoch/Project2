@@ -16,6 +16,7 @@ module.exports = function(app) {
         })
         .then(function(dbNfl) {  
             //res.json(dbNfl);
+//JUST FOR FRONTEND VISUALIZATION
             res.render("home")
         });
     });
@@ -42,10 +43,6 @@ module.exports = function(app) {
 
     });
 
-    app.get("/home", function(req, res){
-        // this will bring up the home
-        res.render("home");
-    })
 });
 
     
