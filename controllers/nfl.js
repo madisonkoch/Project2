@@ -5,6 +5,7 @@ var path = require("path");
 // Import model to use its databse functions
 var db = require("../models");
 var Sequelize = require("Sequelize");
+var express = require("express");
 
 module.exports = function(app) {
 
@@ -12,12 +13,25 @@ module.exports = function(app) {
 // * Get all teams
     app.get("/", function(req, res){
         db.teams.findAll({
-            attributes: ['team_name']
+            // attributes: ['team_name']
         })
-        .then(function(dbNfl) {  
-            res.json(dbNfl);
+        .then(function(data) {  
+            var teamsObject = {
+                teams: data
+            };
+            // console.log('teamsObject', teamsObject);
+            // eventually render this info
+            res.render("index", teamsObject)
         });
     });
+
+// * Get selected team data
+    app.get("/team", function(req, res){
+        db.team.findOne
+    })
+
+
+
 // * Get all user data
     app.get("/user", function(req, res){
         db.user.findAll({})
@@ -37,11 +51,20 @@ module.exports = function(app) {
         })
         .then(function(dbUser) {  
             res.json(dbUser);
-
-
     });
 });
-
+    // * Post new User to user table
+    app.post("/api/users", function(req, res){
+        console.log(req.body);
+        db.user.create({
+            username: req.body.username,
+            // ? Will we post after user has played and their score has been calculated?
+            points: req.body.points
+        })
+        .then(function(dbPost) { 
+            res.json(dbPost);
+        });
+    });
     
     // app.post("/api/teams", function(req, res){
     //     //response
