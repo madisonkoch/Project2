@@ -1,42 +1,72 @@
 @import url(reset.css);
+/* HTML */
+    html {
+        background-image: url("/assets/images/background-mobile-hash.png");
+        background-size: cover;
+    }
+    body    {
+        background-color: transparent;
+    }
+
 
 /* Text */
-    h2,p,li{
+    h2  {
         color: white;
+        text-align: center;
+        font-family: 'Titan One', cursive;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 0 px 0 black;
+        font-size: 25px;
+        padding-top: 10px;
+    }
+    p,li    {
+        color: black;
+        font-family: 'Fredoka One', cursive;
     }
     h1 {
         color: white;
         text-align: center;
-        font-size: 30px;
+        font-size: 50px;
+        font-family: 'Titan One', cursive;
+        margin-top: 12px;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 0 6px 0 black;
     }
 
 /* Header */
     header {
-        background-color: black;
-        position: absolute;
+        margin-top: 23px;
+        height: 95px;
+        background-color: red;
+        border-top: solid black 4px;
+        border-bottom: solid black 8px;
+    }
+    #header-shade {
+        background-color: rgba(0, 0, 0, 0.541);
+        height: 34px;
         width: 100%;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        box-shadow: 0 -5px 31px 7px black;
-        border-bottom: solid;
-        border-bottom-color: #1d1c1ced;
-        border-bottom-width: 1px;
-    }
-    #header-back-arrow{
         position: absolute;
-        left: 20px;
-        top: 20px;
-        height: 30px;
-        border: solid;
-        border-width: 3px;
-        border-color: white;
+        top: 98px;
     }
-    #header-back-arrow:hover{
-        color:purple;
+  
+ /* Menu */
+    .menu-item  {
+        height: 55px;
+        background-color: #FEC524;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid black 3px;
+        outline: solid #d6d6d6 1px;
     }
- /* Body */
-    body {
-        background-image: url("/assets/images/purpleBack-dark.png");
+    .menu-item:hover  {
+        background-color: blue;
+    }
+    #menu-game  {
+        margin-top: 40px;
+    }
+    #menu-rank, #menu-about  {
+        margin-top: 20px;
     }
 
 /* Footer */

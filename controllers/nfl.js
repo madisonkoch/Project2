@@ -15,7 +15,8 @@ module.exports = function(app) {
             attributes: ['team_name']
         })
         .then(function(dbNfl) {  
-            res.json(dbNfl);
+            //res.json(dbNfl);
+            res.render("home")
         });
     });
 // * Get all user data
@@ -40,6 +41,11 @@ module.exports = function(app) {
 
 
     });
+
+    app.get("/home", function(req, res){
+        // this will bring up the home
+        res.render("home");
+    })
 });
 
     
@@ -51,9 +57,7 @@ module.exports = function(app) {
     //     //response
     // })
     
-    // app.get("/home", function(req, res){
-    //     // this will bring up the home / leaderboard page
-    // })
+
     
     // app.get("/game", function(req, res){
     //     // the actual functionality of the app
