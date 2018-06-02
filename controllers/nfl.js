@@ -17,7 +17,7 @@ module.exports = function(app) {
         .then(function(dbNfl) {  
             //res.json(dbNfl);
 //JUST FOR FRONTEND VISUALIZATION
-            res.render("home")
+            res.render("game")
         });
     });
 // * Get all user data
