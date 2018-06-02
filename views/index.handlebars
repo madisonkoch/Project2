@@ -20,9 +20,9 @@
   <script>
     $('#dropdown').change(function() {
         var opponentValues = this.value;
-       localStorage.setItem('opponentValues', opponentValues);
+       localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
        // append to different screen
-       
+
     });
       
     
