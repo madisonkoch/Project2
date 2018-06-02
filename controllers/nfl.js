@@ -15,9 +15,7 @@ module.exports = function(app) {
             attributes: ['team_name']
         })
         .then(function(dbNfl) {  
-            //res.json(dbNfl);
-//JUST FOR FRONTEND VISUALIZATION
-            res.render("game")
+            res.json(dbNfl);
         });
     });
 // * Get all user data
