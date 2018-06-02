@@ -1,34 +1,36 @@
 let runYardage = 0;
 
-function runPlay() {
-    var toString = Object.prototype.toString,
-        slice = Array.prototype.slice;
-    function Probability() {
-        var i = 0,
-            l = 0,
-            probas = [],
-            functions = [],
-            sum = 0,
-            args = toString.call(arguments[0]) === '[object Array]' ? arguments[0] : slice.call(arguments);
-        args.push({
-            p: 0,
-            f: function () { }
-        });
-        for (i = 0, l = args.length; i < l; i++) {
-            var p = Math.abs(parseFloat(args[i].p)),
-                f = args[i].f;
-            if (isNaN(p) || typeof f !== 'function') {
-                throw new TypeError('Probability.js: Invalid probability object in argument ' + i + '.');
-            }
-            if (/%/.test(args[i].p)) {
-                p = p / 100.0;
-            }
-            sum += p;
-            if (sum > 1.0) {
-                throw new TypeError('Probability.js: Probability exceeds "1.0" (=100%) in argument ' + i + ': p="' + p + '" (=' + p * 100 + '%), sum="' + sum + '" (=' + sum * 100 + '%).');
-            }
-            probas[i] = sum;
-            functions[i] = f;
+
+var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
+const opponentOffRun = opponentstats[0];
+const opponentOffPass = opponentstats[1];
+const opponentDefRun = opponentstats[2];
+const opponentDefPass = opponentstats[3];
+
+
+
+const offRun = 6.2
+const defRun = 3.4
+let startingYardage = 20
+
+var toString = Object.prototype.toString,
+slice = Array.prototype.slice;
+function Probability() {
+    var i = 0,
+        l = 0,
+        probas = [],
+        functions = [],
+        sum = 0,
+        args = toString.call(arguments[0]) === '[object Array]' ? arguments[0] : slice.call(arguments);
+    args.push({
+        p: 0,
+        f: function () {}
+    });
+    for (i = 0, l = args.length; i < l; i++) {
+        var p = Math.abs(parseFloat(args[i].p)),
+            f = args[i].f;
+        if (isNaN(p) || typeof f !== 'function') {
+            throw new TypeError('Probability.js: Invalid probability object in argument ' + i + '.');
         }
         return function probabilitilized() {
             var random = Math.random();
