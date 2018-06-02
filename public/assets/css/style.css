@@ -151,3 +151,14 @@
     font-size: 14px;
     padding-left: 2px;
 }
+#lineup-div {
+    width: 100%;
+}
+#lineup {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    top: 32px;
+    position: relative;
+}
