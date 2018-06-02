@@ -1,10 +1,12 @@
 // Dependencies Required 
 // const express = require("express");
 // const router = express.Router();
-var path = require("path");
+
+// var path = require("path");
 // Import model to use its databse functions
 var db = require("../models");
-var Sequelize = require("Sequelize");
+
+// var Sequelize = require("Sequelize");
 
 module.exports = function(app) {
 
