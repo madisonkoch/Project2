@@ -25,10 +25,10 @@ module.exports = function(app) {
         });
     });
 
-// * Get selected team data
-    app.get("/team", function(req, res){
-        db.team.findOne
-    })
+// // * Get selected team data
+//     app.get("/team", function(req, res){
+//         db.team.findOne
+//     })
 
 
 
@@ -41,10 +41,10 @@ module.exports = function(app) {
     });
 
 
-    // * Get top 5 scores 
+    // * Get top 10 scores 
     app.get("/leaderboard", function(req, res){
         // a leraderboard of all the high scores
-        db.user.findAll({ limit: 5,
+        db.user.findAll({ limit: 10,
            order: [
                ['points', 'DESC'],
         ],      
@@ -63,7 +63,9 @@ module.exports = function(app) {
             points: req.body.points
         })
         .then(function(dbPost) { 
-            res.json(dbPost);
+            // res.json(dbPost);
+            // redirect to leaderboard
+            res.redirect("/leaderboard");
         });
     });
     
