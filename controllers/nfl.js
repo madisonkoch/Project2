@@ -52,6 +52,7 @@ module.exports = function(app) {
         .then(function(dbUser) {  
             res.json(dbUser);
     });
+
 });
     // * Post new User to user table
     app.post("/api/users", function(req, res){
@@ -74,9 +75,7 @@ module.exports = function(app) {
     //     //response
     // })
     
-    // app.get("/home", function(req, res){
-    //     // this will bring up the home / leaderboard page
-    // })
+
     
     // app.get("/game", function(req, res){
     //     // the actual functionality of the app

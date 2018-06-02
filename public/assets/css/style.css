@@ -1,3 +1,153 @@
-html {
-    background-color: black ;
+@import url(reset.css);
+/* HTML */
+    html {
+        min-height: 100%;
+        background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
+        background-size: cover;
+    }
+    body    {
+        background-color: transparent;
+        min-height: 100%;
+    }
+
+
+/* Text */
+    h2  {
+        color: white;
+        text-align: center;
+        font-family: 'Titan One', cursive;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 0 4px 0 black;
+        font-size: 25px;
+        padding-top: 10px;
+    }
+    h3,p,li,ul    {
+        color: black;
+        font-family: 'Fredoka One', cursive;
+        font-size: 20px;
+    }
+    h1 {
+        color: white;
+        text-align: center;
+        font-size: 50px;
+        font-family: 'Titan One', cursive;
+        margin-top: 12px;
+        -webkit-text-stroke: 2px black;
+        text-shadow: 0 6px 0 black;
+    }
+
+/* Header */
+    header {
+        margin-top: 23px;
+        height: 95px;
+        background-color: red;
+        border-top: solid black 4px;
+        border-bottom: solid black 8px;
+    }
+    #header-shade {
+        background-color: rgba(0, 0, 0, 0.541);
+        height: 34px;
+        width: 100%;
+        position: absolute;
+        top: 98px;
+    }
+    .subheader-div  {
+        position: absolute;
+        top: 90px;
+        width: 100%;
+    }
+    .subheader  {
+        color: #FEC524;
+        text-align: center;
+        -webkit-text-stroke: 2px black;
+    }
+  
+ /* Menu */
+    .menu-button  {
+        height: 55px;
+        background-color: #FEC524;
+        width: 65%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid black 3px;
+        outline: solid #d6d6d6 1px;
+    }
+    .menu-button:hover  {
+        background-color: blue;
+    }
+    #menu-game, #menu-instructions  {
+        margin-top: 40px;
+    }
+    #menu-rank, #menu-about  {
+        margin-top: 20px;
+    }
+
+/* Footer */
+    footer {
+        background-color: black ;
+    }
+
+/* About Page */
+    #developers  {
+        width: 65%;
+        background-color: rgba(255, 255, 255, 0.65);
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom: 5px;
+        padding-top: 5px;
+    }
+    .developer  {
+        text-align: center;
+        margin-bottom: 10px;
+        padding-top: 10px;
+    }
+
+/* Leaderboard Page */
+    .top-five   {
+        display: flex;
+        width: 65%;  
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 35px; 
+    }
+    .top-five-rank  {
+        width: 10%;
+    }
+    .top-five-name  {
+        width: 40%;
+    }
+    .top-five-points    {
+        width: 50%;
+        text-align: right;
+    }
+
+/* Game */
+#scoreboard {
+    background-color: red;
+    height: 65px;
+    width: 100%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 30px;
+}
+.stat {
+    width: 33%;
+    text-align: center;
+}
+.unit-div {
+    display: flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+#down, #togo, #points   {
+    margin-top: 0;
+    font-size: 40px;
+}
+.unit {
+    padding-top: 7px;
+    font-size: 14px;
+    padding-left: 2px;
 }
