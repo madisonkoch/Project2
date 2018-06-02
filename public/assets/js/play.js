@@ -1,4 +1,13 @@
 
+
+var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
+const opponentOffRun = opponentstats[0];
+const opponentOffPass = opponentstats[1];
+const opponentDefRun = opponentstats[2];
+const opponentDefPass = opponentstats[3];
+
+
+
 const offRun = 6.2
 const defRun = 3.4
 let startingYardage = 20
