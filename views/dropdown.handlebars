@@ -10,7 +10,7 @@
 <body>
   <select id='dropdown'>
       {{#each teams}}
-      {{!-- Exclude Minnesota --}}
+      {{!-- Exclude Minnesota? --}}
   <option class='option' value="[{{O_rush_YPA}},{{O_pass_YPA}},{{D_rush_YPA}},{{D_pass_YPR}}]" > Team: {{team_name}}</option>;
 {{/each}}
     </option>
@@ -22,7 +22,6 @@
         var opponentValues = this.value;
        localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
        // append to different screen
-
     });
       
     
