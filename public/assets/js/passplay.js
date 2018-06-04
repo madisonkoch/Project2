@@ -210,7 +210,7 @@ function totalDowns(){
     }
 }
 
-$("#big_butt").on("click", function() {
+$("#pass-btn").on("click", function() {
     passPlay(); 
     totalYardage += passYardage
     currentYardage += passYardage
@@ -226,7 +226,7 @@ $("#big_butt").on("click", function() {
     
   });
 
-  $("#butt").on("click", function() {
+  $("#run-btn").on("click", function() {
     runPlay();
     totalYardage += runYardage
     currentYardage += runYardage
