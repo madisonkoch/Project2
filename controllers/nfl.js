@@ -25,6 +25,16 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/game", function(req, res){
+        // the actual functionality of the app
+        res.render("game");
+    })
+
+    app.get("/about", function(req, res){
+        // the actual functionality of the app
+        res.render("about");
+    })
+
 // // * Get selected team data
 //     app.get("/team", function(req, res){
 //         db.team.findOne
@@ -50,7 +60,10 @@ module.exports = function(app) {
         ],      
         })
         .then(function(dbUser) {  
-            res.json(dbUser);
+
+
+            // res.json(dbUser);
+            res.render("leaderboard", )
     });
 
 });
@@ -79,9 +92,7 @@ module.exports = function(app) {
     
 
     
-    // app.get("/game", function(req, res){
-    //     // the actual functionality of the app
-    // })
+  
     
     // app.get("/profile", function(req, res){
         // generated user profiles after logging in

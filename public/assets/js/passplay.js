@@ -182,8 +182,12 @@ function runPlay() {
 
 function totalYards (){
     if (totalYardage >= 80) {
-        totalPoints + 7; 
+        totalPoints += 7; 
         document.getElementById("score").innerHTML=totalPoints
+        downs = 1
+        currentYardage = 0;
+        totalYardage = 20;
+        console.log("Touchdown!")
 }}
 
 function firstDown (){
@@ -211,13 +215,13 @@ $("#big_butt").on("click", function() {
     totalYardage += passYardage
     currentYardage += passYardage
     passYardage = 0
+    firstDown();
     totalYards();
-    firstDown(); 
     totalDowns(); 
-    document.getElementById("downs").innerHTML=downs
-    document.getElementById("yardage").innerHTML=currentYardage
+    document.getElementById("down").innerHTML=downs
+    document.getElementById("togo").innerHTML=currentYardage
     document.getElementById("data_place").innerHTML=totalYardage
-    document.getElementById("score").innerHTML=totalPoints
+    document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
     
   });
@@ -230,10 +234,10 @@ $("#big_butt").on("click", function() {
     totalYards();
     firstDown(); 
     totalDowns(); 
-    document.getElementById("downs").innerHTML=downs
-    document.getElementById("yardage").innerHTML=currentYardage
+    document.getElementById("down").innerHTML=downs
+    document.getElementById("togo").innerHTML=currentYardage
     document.getElementById("data_place").innerHTML=totalYardage
-    document.getElementById("score").innerHTML=totalPoints
+    document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
   });
 }); 
