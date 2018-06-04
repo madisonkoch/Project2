@@ -12,6 +12,11 @@ module.exports = function(app) {
 
 // * Get all teams
     app.get("/", function(req, res){
+        // the actual functionality of the app
+        res.render("index");
+    })
+
+    app.get("/game", function(req, res){
         db.teams.findAll({
             // attributes: ['team_name']
         })
@@ -24,11 +29,6 @@ module.exports = function(app) {
             res.render("game", teamsObject)
         });
     });
-
-    app.get("/game", function(req, res){
-        // the actual functionality of the app
-        res.render("game");
-    })
 
     app.get("/about", function(req, res){
         // the actual functionality of the app
