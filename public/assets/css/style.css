@@ -4,7 +4,7 @@
         /* min-height: 100%;
         background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
         background-size: cover; */
-        background-color: green;
+        background-color: #479801;
     }
     body    {
         background-color: transparent;
@@ -236,4 +236,25 @@
             width: 100%;
         }
 
-    
+/* Media Queries */
+@media only screen and (min-width: 490px) {
+    body {
+        background-size: 490px auto;
+        background-attachment: fixed;
+        background-position: center bottom;
+    }
+    main {
+        max-width: 490px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #pre-game-modal-content{
+        max-width: 350px;
+    } 
+    #controls,
+    .subheader-div,
+    #scoreboard {
+        width: 490px;
+    }
+
+}
