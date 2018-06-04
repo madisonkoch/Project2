@@ -1,13 +1,18 @@
 @import url(reset.css);
 /* HTML */
     html {
-        min-height: 100%;
+        /* min-height: 100%;
         background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
-        background-size: cover;
+        background-size: cover; */
+        background-color: green;
     }
     body    {
         background-color: transparent;
+        height: -webkit-fill-available;
         min-height: 100%;
+        background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
+        background-size: cover;
+        padding-top: 23px;
     }
 
 
@@ -38,7 +43,6 @@
 
 /* Header */
     header {
-        margin-top: 23px;
         height: 95px;
         background-color: red;
         border-top: solid black 4px;
@@ -150,6 +154,48 @@
     padding-top: 7px;
     font-size: 14px;
     padding-left: 2px;
+}
+.timer-div {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+#timer {
+    padding-left: 15px;
+}
+#lineup-div {
+    width: 100%;
+}
+#lineup {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    top: 32px;
+    position: relative;
+}
+#controls {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.control-button  {
+    height: 55px;
+    background-color: #FEC524;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid black 3px;
+    outline: solid #d6d6d6 1px;
+}
+.control-label {
+    padding-top: 0px;
+}
+#pass-btn{
+    float: right;
 }
 
 /* Modal */

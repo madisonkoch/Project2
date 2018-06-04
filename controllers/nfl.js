@@ -21,7 +21,7 @@ module.exports = function(app) {
             };
             // console.log('teamsObject', teamsObject);
             // eventually render this info
-            res.render("gameover", teamsObject);
+            res.render("game", teamsObject)
         });
     });
 
