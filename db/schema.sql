@@ -9,6 +9,7 @@ CREATE TABLE teams (
   O_pass_YPA DECIMAL(10,1) NULL,
   D_rush_YPA DECIMAL(10,1) NULL,
   D_pass_YPR DECIMAL(10,1) NULL,
+  minnesota boolean DEFAULT FALSE,
   primary key(team_name)
 );
 
