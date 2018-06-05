@@ -1,8 +1,14 @@
+// calculates how many yards gained by passing
 let passYardage = 0
+// calculates how many yards gained by rushing
 let runYardage = 0
+// viking average yards per run
 const offRun = 6.2
+// opponents average rush yards allowed per run play
 const defRun = 3.4
+// viking average yards per pass
 const offPass = 8.5
+// opponents average rush yards allowed per ppass play
 const defPass = 4.6
 // totalYardage used to calculate field position and yardage to score
 let totalYardage = 20
@@ -10,11 +16,16 @@ let totalYardage = 20
 let currentYardage = 0
 let totalPoints = 0
 let downs = 1
+let totalTime = 900000;
+let gameTime = 30000;
+let turnoverTime = 90000; 
 
 $( document ).ready(function(){
+// passplay function is the function that allows for a random pass play to be run
 function passPlay() {
     var toString = Object.prototype.toString,
         slice = Array.prototype.slice;
+        // probability is the function that allows for determining how often a play is run.  ie: "run this function 8% of the time"
     function Probability() {
         var i = 0,
             l = 0,
@@ -55,13 +66,13 @@ function passPlay() {
     function getRandomInt(min, max) {
         return Math.random() * (max - min) + min;
     }
-
+// when a pass is thrown but not completed
     function incompletePass() {
         console.log("The pass was incomplete")
         passYardage = 0
         return passYardage
     }
-
+// when the def makes a play and the offense gets negative yardage
     function bigDefPlay() {
         let yards = getRandomInt(8, 1)
         let roundedYards = Math.round(yards * 10) / 10;
@@ -70,7 +81,7 @@ function passPlay() {
         console.log(passYardage)
         return passYardage
     }
-
+// an average pass play that gives a random number between the offense and defense average
     function normalPass() {
         let yards = getRandomInt(offPass, defPass)
         let roundedYards = Math.round(yards * 10) / 10;
@@ -79,7 +90,7 @@ function passPlay() {
         console.log(passYardage)
         return passYardage
     }
-
+// the offense make a "big play" (over 20 yards) and gets a random number between 20 and 80
     function bigPassPlay() {
         let yards = getRandomInt(80, 20)
         let roundedYards = Math.round(yards * 10) / 10;
@@ -97,7 +108,7 @@ function passPlay() {
 }
 
 
-
+// all of these functions below mirror the pass plays, but they are for runs
 function runPlay() {
     var toString = Object.prototype.toString,
         slice = Array.prototype.slice;
@@ -179,7 +190,7 @@ function runPlay() {
 
     }
 }
-
+// This calculates if the offense scored and resets down and distance if they did
 function totalYards (){
     if (totalYardage >= 80) {
         totalPoints += 7; 
@@ -189,7 +200,7 @@ function totalYards (){
         totalYardage = 20;
         console.log("Touchdown!")
 }}
-
+// this calcualtes whether the offense gained at least 10 yards in 4 plays and resets the downs to 1 if they did
 function firstDown (){
     if (currentYardage >= 10) {
         console.log("First Down!"); 
@@ -200,13 +211,14 @@ function firstDown (){
         console.log("no first")
     }
 }
-
+// if they did not gain 10 yards in 4 plays, this resets total yardage to 20, runs 1:30 off the clock and resets down and distance 
 function totalDowns(){
     if (downs > 4 && currentYardage < 10 ) {
         console.log("turnover")
         totalYardage = 20
         downs = 1
         currentYardage = 0
+        totalTime -= turnoverTime
     }
 }
 
@@ -219,7 +231,7 @@ $("#pass-btn").on("click", function() {
     totalYards();
     totalDowns(); 
     document.getElementById("down").innerHTML=downs
-    document.getElementById("togo").innerHTML=currentYardage
+    document.getElementById("togo").innerHTML=(10-currentYardage)
     // document.getElementById("data_place").innerHTML=totalYardage
     document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
@@ -235,11 +247,70 @@ $("#pass-btn").on("click", function() {
     firstDown(); 
     totalDowns(); 
     document.getElementById("down").innerHTML=downs
-    document.getElementById("togo").innerHTML=currentYardage
+    document.getElementById("togo").innerHTML=(10-currentYardage)
     // document.getElementById("data_place").innerHTML=totalYardage
     document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
   });
+
+// functions to run time off the clock when either button is clicked
+function gameStart(){
+
+    // displayed timer when the game starts
+    let timer = moment.utc(totalTime).format("mm:ss")
+    console.log(timer);
+
+    // display it on the dom
+    $("#timer").text(timer);
+
+}
+
+// fucntion when button clicked 
+$("#run-btn").on("click", function(){
+
+    // condition to restart the game 
+    if (totalTime <= 0){
+        totalTime = 900000;
+        gameStart();
+
+    }else{
+        // subtracts the game time from total time
+        totalTime -= gameTime;
+        console.log(totalTime)
+        // changes the diffrence to a mm:ss format
+        timer = moment.utc(totalTime).format("mm:ss");
+        console.log(timer)
+
+        // display it on the dom
+        $("#timer").text(timer);
+    }
+
+})
+// fucntion when button clicked 
+$("#pass-btn").on("click", function(){
+
+    // condition to restart the game 
+    if (totalTime <= 0){
+        totalTime = 900000;
+        gameStart();
+
+    }else{
+        // subtracts the game time from total time
+        totalTime -= gameTime;
+        console.log(totalTime)
+        // changes the diffrence to a mm:ss format
+        timer = moment.utc(totalTime).format("mm:ss");
+        console.log(timer)
+
+        // display it on the dom
+        $("#timer").text(timer);
+    }
+
+})
+
+
+
 }); 
+
 
 
