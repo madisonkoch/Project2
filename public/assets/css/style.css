@@ -206,6 +206,7 @@
     }
     #lineup-div {
         position: absolute;
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
     }
     #lineup {
         position: relative;
@@ -314,7 +315,10 @@
     #controls,
     .subheader-div,
     #scoreboard,
-    #in-game-message {
+    #game-header,
+    #game-header-shade,
+    #in-game-message,
+    #lineup-div {
         width: 490px;
     }
     .subheader-div{
@@ -323,6 +327,7 @@
         margin-right: auto;
     }
 }
+
 /* Overwrite existing styles */
 a:hover{
     text-decoration: none;
