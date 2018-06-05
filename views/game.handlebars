@@ -60,7 +60,7 @@
             <select id="dropdown"  onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;">
                 {{#each teams}}
                     {{#unless minnesota}}
-                    <option value="[{{O_rush_YPA}},{{O_pass_YPA}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
+                    <option value="[{{team_name}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
                     {{/unless}}
                 {{/each}}
             </select>
