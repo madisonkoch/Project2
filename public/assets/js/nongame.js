@@ -15,3 +15,14 @@
             modal.style.display = "none";
         }
     }
+
+
+//About Page
+    //Show/hide Instructions
+    $("#menu-instructions").click(function(){
+        $("#instructions").toggle();
+    });
+    //Show/hide Developer Names
+    $("#menu-developers").click(function(){
+        $("#developers").toggle();
+    });

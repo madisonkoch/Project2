@@ -17,7 +17,7 @@
 
 
 /* Text */
-    h2  {
+    h2,a,i  {
         color: white;
         text-align: center;
         font-family: 'Titan One', cursive;
@@ -25,6 +25,10 @@
         text-shadow: 0 4px 0 black;
         font-size: 25px;
         padding-top: 10px;
+    }
+    a:hover{
+        text-decoration: none;
+        color: white;
     }
     h3,p,li,ul,option,select    {
         color: black;
@@ -59,9 +63,10 @@
         top: 98px;
     }
     .subheader-div  {
-        position: absolute;
-        top: 90px;
         width: 100%;
+        padding-top: -90px;
+        position: sticky;
+        margin-top: -28px;
     }
     .subheader  {
         color: #FEC524;
@@ -78,6 +83,7 @@
         margin-right: auto;
         border: solid black 3px;
         outline: solid #d6d6d6 1px;
+        cursor: pointer;
     }
     .menu-button:hover  {
         background-color: blue;
@@ -88,6 +94,26 @@
     #menu-rank, #menu-about  {
         margin-top: 20px;
     }
+/* Back to Main Menu Button */
+    i {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    .left {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+    }
+    #back-div {
+        display: inline-flex;
+    }
+    #main-menu-btn:hover {
+        background-color: blue;
+    }
+
 
 /* Footer */
     footer {
@@ -95,7 +121,7 @@
     }
 
 /* About Page */
-    #developers  {
+    #developers, #instructions  {
         width: 65%;
         background-color: rgba(255, 255, 255, 0.65);
         margin-left: auto;
@@ -108,6 +134,9 @@
         margin-bottom: 10px;
         padding-top: 10px;
     }
+    #instruction {
+        padding: 10px;
+    }
 
 /* Leaderboard Page */
     .top-five   {
@@ -115,13 +144,10 @@
         width: 65%;  
         margin-left: auto;
         margin-right: auto;
-        margin-top: 35px; 
-    }
-    .top-five-rank  {
-        width: 10%;
+        margin-top: 20px; 
     }
     .top-five-name  {
-        width: 40%;
+        width: 50%;
     }
     .top-five-points    {
         width: 50%;
@@ -129,77 +155,77 @@
     }
 
 /* Game */
-#scoreboard {
-    background-color: red;
-    height: 65px;
-    width: 100%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 30px;
-}
-.stat {
-    width: 33%;
-    text-align: center;
-}
-.unit-div {
-    display: flex;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-#down, #togo, #points   {
-    margin-top: 0;
-    font-size: 40px;
-}
-.unit {
-    padding-top: 7px;
-    font-size: 14px;
-    padding-left: 2px;
-}
-.timer-div {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content;
-}
-#timer {
-    padding-left: 15px;
-}
-#lineup-div {
-    width: 100%;
-}
-#lineup {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    top: 32px;
-    position: relative;
-}
-#controls {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.control-button  {
-    height: 55px;
-    background-color: #FEC524;
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    border: solid black 3px;
-    outline: solid #d6d6d6 1px;
-}
-.control-label {
-    padding-top: 0px;
-}
-#pass-btn{
-    float: right;
-}
+    #scoreboard {
+        background-color: red;
+        height: 65px;
+        width: 100%;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        top: 30px;
+    }
+    .stat {
+        width: 33%;
+        text-align: center;
+    }
+    .unit-div {
+        display: flex;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #down, #togo, #points   {
+        margin-top: 0;
+        font-size: 40px;
+    }
+    .unit {
+        padding-top: 7px;
+        font-size: 14px;
+        padding-left: 2px;
+    }
+    .timer-div {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+    }
+    #timer {
+        padding-left: 15px;
+    }
+    #lineup-div {
+        width: 100%;
+    }
+    #lineup {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 75%;
+        top: 32px;
+        position: relative;
+    }
+    #controls {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .control-button  {
+        height: 55px;
+        background-color: #FEC524;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid black 3px;
+        outline: solid #d6d6d6 1px;
+    }
+    .control-label {
+        padding-top: 0px;
+    }
+    #pass-btn{
+        float: right;
+    }
 
 /* Pre-Game Modal */
     #pre-game-modal {
@@ -255,6 +281,11 @@
     .subheader-div,
     #scoreboard {
         width: 490px;
+    }
+    .subheader-div{
+        width: 490px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
 }
