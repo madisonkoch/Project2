@@ -223,6 +223,13 @@
     #pass-btn{
         float: right;
     }
+    #in-game-message {
+        position: fixed;
+        bottom: 120px;
+        width: 100%;
+        text-align: center;
+    }
+
 
 /* Pre-Game Modal */
     #pre-game-modal,
@@ -293,12 +300,13 @@
         margin-left: auto;
         margin-right: auto;
     }
-    #pre-game-modal-content{
+    #pre-game-modal-content {
         max-width: 350px;
     } 
     #controls,
     .subheader-div,
-    #scoreboard {
+    #scoreboard,
+    #in-game-message {
         width: 490px;
     }
     .subheader-div{
@@ -306,14 +314,13 @@
         margin-left: auto;
         margin-right: auto;
     }
-
 }
 /* Overwrite existing styles */
 a:hover{
     text-decoration: none;
     color: white;
-    background-color: blue;
 }
 .control-button:hover {
     background-color: blue;
 }
+

@@ -30,6 +30,21 @@
         </div>
     </div>
 
+    {{!-- Image of ball & players --}}
+    <div id="lineup-div">
+        <img id="lineup" src="/assets/images/lineup.png" alt="lineup">
+    </div>
+
+    {{!-- Game play option "buttons" / Run or Pass --}}
+    <div id="controls">
+        <button id="run-btn" class="control-button">
+            <h2 class="control-label">RUN</h2>
+        </button>
+        <button id="pass-btn" class="control-button">
+            <h2 class="control-label">PASS</h2>
+        </button>
+    </div>
+{{!-- MODALS --}}
     {{!-- Pre-Game Option(s) Modal -- choose opponent --}}
     <div class="modal" id="pre-game-modal">
         <div id="pre-game-modal-content">
@@ -46,25 +61,8 @@
             </button>
         </div>
     </div>
-
-
-    {{!-- Image of ball & players --}}
-    <div id="lineup-div">
-        <img id="lineup" src="/assets/images/lineup.png" alt="lineup">
-    </div>
-
-    {{!-- Game play option "buttons" / Run or Pass --}}
-    <div id="controls">
-        <button id="run-btn" class="control-button">
-            <h2 class="control-label">RUN</h2>
-        </button>
-        <button id="pass-btn" class="control-button">
-            <h2 class="control-label">PASS</h2>
-        </button>
-    </div>
-
     {{!-- Post-Game Modal --}}
-    <div class="modal" id="post-game-modal">
+    <div class="modal" id="post-game-modal" style="display:none">
         <div id="pre-game-modal-content">
             <div id="end-stats">
                 <div class="end-stat">
@@ -91,6 +89,7 @@
             </form>
         </div>
     </div>
-
+    {{!-- In-Game Pop-ups / Modals --}}
+    <h1 id="in-game-message">+/- # YARDS</h1>
 </main>
 
