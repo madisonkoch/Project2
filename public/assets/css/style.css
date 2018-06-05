@@ -1,9 +1,6 @@
 @import url(reset.css);
 /* HTML */
     html {
-        /* min-height: 100%;
-        background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
-        background-size: cover; */
         background-color: #479801;
     }
     body    {
@@ -12,7 +9,6 @@
         min-height: 100%;
         background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
         background-size: cover;
-        padding-top: 23px;
     }
 
 
@@ -46,29 +42,43 @@
     }
 
 /* Header */
-    header {
+    header,
+    #game-header {
         height: 95px;
         background-color: red;
         border-top: solid black 4px;
         border-bottom: solid black 8px;
+        position: absolute;
+        width: 100%;
+        margin-top: 23px;
     }
-    #header-shade {
+
+    .header-shade {
         background-color: rgba(0, 0, 0, 0.541);
         height: 34px;
         width: 100%;
         position: absolute;
-        top: 98px;
+        top: 70px;
     }
     .subheader-div  {
         width: 100%;
         padding-top: -90px;
         position: sticky;
-        margin-top: -28px;
+        margin-top: -6px;
+    }
+    .game-subheader-div  {
+        width: 100%;
+        padding-top: -90px;
+        position: absolute;
+        top: -7px;
     }
     .subheader  {
         color: #FEC524;
         text-align: center;
         -webkit-text-stroke: 2px black;
+    }
+    .header-spacer {
+        height: 95px;
     }
   
  /* Menu */
@@ -154,13 +164,15 @@
 /* Game */
     #scoreboard {
         background-color: red;
-        height: 65px;
+        height: 95px;
         width: 100%;
         display: flex;
         margin-left: auto;
         margin-right: auto;
         position: absolute;
-        top: 30px;
+        top: -4px;
+        border-top: solid black 4px;
+        border-bottom: solid black 8px;
     }
     .stat {
         width: 33%;
@@ -186,20 +198,19 @@
         margin-left: auto;
         margin-right: auto;
         width: fit-content;
+        position: relative;
+        top: -8px;
     }
     #timer {
         padding-left: 15px;
     }
     #lineup-div {
-        width: 100%;
+        position: absolute;
     }
     #lineup {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 75%;
-        top: 32px;
         position: relative;
+        width: 75%;
+        margin-left: 12.5%;
     }
     #controls {
         position: absolute;

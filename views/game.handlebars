@@ -1,48 +1,48 @@
-{{!-- Scoreboard -- covers header with app name --}}
-<main>
-    <div id="scoreboard">
-        <div class="stat">
-            <ul>DOWN</ul>
-            <div class="unit-div">
-                <h1 id="down">1</h1>
-                <ul class="unit">ST</ul>
-            </div>
-        </div>
-        <div class="stat">
-            <ul>TO GO</ul>
-            <div class="unit-div">
-                <h1 id="togo">10</h1>
-                <ul class="unit">YRDS</ul>
-            </div>
-        </div>
-        <div class="stat">
-            <ul>SCORE</ul>
-            <div class="unit-div">
-                <h1 id="points">00</h1>
-                <ul class="unit">PTS</ul>
-            </div>
-        </div>
-    </div>
-    {{!-- <div class="subheader-div">
-        <div class="timer-div">
-            <h2 class="subheader timer">TIME LEFT</h2>
-            <h2 class="subheader" id="timer">15:00</h2>
-        </div>
-    </div> --}}
-    <div class="subheader-div">
-        <div class="timer-div">
-            <h2 class="subheader timer">TIME LEFT</h2>
-            <h2 class="subheader" id="timer"></h2>
-        </div>
-    </div>
-</div>
-
-    {{!-- Image of ball & players --}}
+{{!-- Image of ball & players --}}
     <div id="lineup-div">
         <img id="lineup" src="/assets/images/lineup.png" alt="lineup">
     </div>
+{{!-- Scoreboard -- covers header with app name --}}
+	<div id="game-header">
+        <div id="scoreboard">
+            <div class="stat">
+                <ul>DOWN</ul>
+                <div class="unit-div">
+                    <h1 id="down">1</h1>
+                    <ul class="unit">ST</ul>
+                </div>
+            </div>
+            <div class="stat">
+                <ul>TO GO</ul>
+                <div class="unit-div">
+                    <h1 id="togo">10</h1>
+                    <ul class="unit">YRDS</ul>
+                </div>
+            </div>
+            <div class="stat">
+                <ul>SCORE</ul>
+                <div class="unit-div">
+                    <h1 id="points">00</h1>
+                    <ul class="unit">PTS</ul>
+                </div>
+            </div>
+        </div>
+        {{!-- <div class="subheader-div">
+            <div class="timer-div">
+                <h2 class="subheader timer">TIME LEFT</h2>
+                <h2 class="subheader" id="timer">15:00</h2>
+            </div>
+        </div> --}}
+        <div class="header-shade" id="game-header-shade">
+            <div class="timer-div">
+                <h2 class="subheader timer">TIME LEFT</h2>
+                <h2 class="subheader" id="timer"></h2>
+            </div>
+        </div>
 
-    {{!-- Game play option "buttons" / Run or Pass --}}
+    </div>
+
+{{!-- Game play option "buttons" / Run or Pass --}}
     <div id="controls">
         <button id="run-btn" class="control-button">
             <h2 class="control-label">RUN</h2>
@@ -98,5 +98,4 @@
     </div>
     {{!-- In-Game Pop-ups / Modals --}}
     <h1 id="in-game-message">+/- # YARDS</h1>
-</main>
 
