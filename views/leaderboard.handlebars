@@ -2,9 +2,21 @@
     <h2 class="subheader">LEADERBOARD</h2>
 </div>
 <main>
-    <div class="top-five">
-        <ul id="1-rank" class="top-five-rank">1.</ul>
-        <ul id="1-name" class="top-five-name"> ABC</ul>
-        <ul id="1-points" class="top-five-points">11 PTS</ul>
+    {{#each users}}
+        <div class="top-five">
+            <ul class="top-five-name"> {{username}}</ul>
+            <ul class="top-five-points">{{points}} PTS</ul>
+        </div>
+    {{/each}}
+
+{{!-- back to main menu button --}}
+    <div id="controls">
+        <button class="control-button">
+            <div id="back-div">
+                <i class="arrow left"></i>
+                <ul><a href="/">MENU</a></ul>  
+            </div>
+        </button>
     </div>
+
 </main>
