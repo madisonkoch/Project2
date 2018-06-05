@@ -36,10 +36,40 @@
             
                 })          
             });
+        //Start ball on 20 yard line
+            // var imgHalf = $("#lineup").height()/2;
+            // var convert = ($("body").width() * 1.255)+ imgHalf;
+            // var fromTop = $(window).height()-convert;
+            // $("#lineup").css({top:fromTop});
+            var screenHeight = $(window).height();
+            var screenWidth = $(window).width();
+            var backgroundHeight = screenWidth*1.778;
+            var delta = backgroundHeight-screenHeight;
+            var twentyFromBackgroundTop = .2943*backgroundHeight;
+            var twentyFromScreenTop = twentyFromBackgroundTop-delta;
+            var halfLineupImg = ($("#lineup").height()/2)-7;
+            var ballOnTwenty = twentyFromScreenTop-halfLineupImg;
+            $("#lineup").css({top:ballOnTwenty});
 
-        // let factor = (1558/1242);
-        // var y = $("body").width * factor;
-        // $("#lineup").css({bottom:y});
+            $(window).resize(function(){
+                if ($(window).width()>489){
+                    $("#lineup").css({top:"64px"});
+                }
+                else if (($(window).width()<440)){
+                    $("#lineup").css({top:"140px"});
+                }
+                else{
+                    var screenHeight = $(window).height();
+                    var screenWidth = $(window).width();
+                    var backgroundHeight = screenWidth*1.778;
+                    var delta = backgroundHeight-screenHeight;
+                    var twentyFromBackgroundTop = .2943*backgroundHeight;
+                    var twentyFromScreenTop = twentyFromBackgroundTop-delta;
+                    var halfLineupImg = ($("#lineup").height()/2)-0;
+                    var ballOnTwenty = twentyFromScreenTop-halfLineupImg;
+                    $("#lineup").css({top:ballOnTwenty});
+                }
+            });
 
 //About Page
     //Show/hide Instructions
