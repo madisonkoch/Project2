@@ -36,11 +36,9 @@
             
                 })          
             });
-        //Start ball on 20 yard line
-            // var imgHalf = $("#lineup").height()/2;
-            // var convert = ($("body").width() * 1.255)+ imgHalf;
-            // var fromTop = $(window).height()-convert;
-            // $("#lineup").css({top:fromTop});
+        //Start of Game - ball on 20 yard line & no yards gained/lossed
+            var netYards = 0;
+
             var screenHeight = $(window).height();
             var screenWidth = $(window).width();
             var backgroundHeight = screenWidth*1.778;
@@ -51,6 +49,11 @@
             var ballOnTwenty = twentyFromScreenTop-halfLineupImg;
             $("#lineup").css({top:ballOnTwenty});
 
+        //dynamic position of ball & player image
+        // $( document ).ready(function(){
+            //Move ball/players with yardage
+
+            //If window resizes during game
             $(window).resize(function(){
                 if ($(window).width()>489){
                     $("#lineup").css({top:"64px"});
@@ -67,9 +70,12 @@
                     var twentyFromScreenTop = twentyFromBackgroundTop-delta;
                     var halfLineupImg = ($("#lineup").height()/2)-0;
                     var ballOnTwenty = twentyFromScreenTop-halfLineupImg;
+                    var ballAfterPlay = ballOnTwenty+netYards;
                     $("#lineup").css({top:ballOnTwenty});
                 }
             });
+        // }
+
 
 //About Page
     //Show/hide Instructions
