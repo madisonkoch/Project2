@@ -26,11 +26,8 @@
         font-size: 25px;
         padding-top: 10px;
     }
-    a:hover{
-        text-decoration: none;
-        color: white;
-    }
-    h3,p,li,ul,option,select    {
+
+    h3,p,li,ul,option,select, input    {
         color: black;
         font-family: 'Fredoka One', cursive;
         font-size: 20px;
@@ -226,9 +223,17 @@
     #pass-btn{
         float: right;
     }
+    #in-game-message {
+        position: fixed;
+        bottom: 85px;
+        width: 100%;
+        text-align: center;
+    }
+
 
 /* Pre-Game Modal */
-    #pre-game-modal {
+    #pre-game-modal,
+    #post-game-modal {
         display: block; /* Show by default */
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
@@ -243,7 +248,8 @@
     }
 
     /* Modal Content/Box */
-        #pre-game-modal-content {
+        #pre-game-modal-content,
+        #post-game-modal-content {
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
@@ -258,9 +264,29 @@
         }
 
     /* Modal Close Button */
-        #close-btn {
+        #close-btn,
+        #sub-btn {
             width: 100%;
         }
+
+/* Post-Game Modal */
+    input   {
+        width: 100%;
+        margin-top: 15px;
+    }
+    #end-stats{
+        width: 100%;
+        display: inline-flex;
+        margin-bottom: 15px;
+    }
+    .end-stat {
+        width: 50%;
+    }
+    .end-unit-div {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 /* Media Queries */
 @media only screen and (min-width: 490px) {
@@ -274,12 +300,13 @@
         margin-left: auto;
         margin-right: auto;
     }
-    #pre-game-modal-content{
+    #pre-game-modal-content {
         max-width: 350px;
     } 
     #controls,
     .subheader-div,
-    #scoreboard {
+    #scoreboard,
+    #in-game-message {
         width: 490px;
     }
     .subheader-div{
@@ -287,5 +314,13 @@
         margin-left: auto;
         margin-right: auto;
     }
-
 }
+/* Overwrite existing styles */
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+.control-button:hover {
+    background-color: blue;
+}
+

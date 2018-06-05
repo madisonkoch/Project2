@@ -23,35 +23,19 @@
             </div>
         </div>
     </div>
-    <div class="subheader-div">
+    {{!-- <div class="subheader-div">
         <div class="timer-div">
             <h2 class="subheader timer">TIME LEFT</h2>
             <h2 class="subheader" id="timer">15:00</h2>
         </div>
+    </div> --}}
+    <div class="subheader-div">
+        <div class="timer-div">
+            <h2 class="subheader timer">TIME LEFT</h2>
+            <h2 class="subheader" id="timer"></h2>
+        </div>
     </div>
 </div>
-<div class="subheader-div">
-    <div class="timer-div">
-        <h2 class="subheader timer">TIME LEFT</h2>
-        <h2 class="subheader" id="timer"></h2>
-
-    {{!-- Pre-Game Option(s) Modal -- choose opponent --}}
-    <div class="modal" id="pre-game-modal">
-    <div id="pre-game-modal-content">
-        <p>Who do you want to play?</p>
-        <select id="dropdown"  onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;">
-            {{#each teams}}
-                {{#unless minnesota}}
-                <option value="[{{O_rush_YPA}},{{O_pass_YPA}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
-                {{/unless}}
-            {{/each}}
-        </select>
-        <button id="close-btn" onclick="document.getElementById('pre-game-modal').style.display='none'" class="control-button">
-            <h2 class="control-label">PLAY!</h2>
-        </button>
-    </div>
-    </div>
-
 
     {{!-- Image of ball & players --}}
     <div id="lineup-div">
@@ -67,5 +51,52 @@
             <h2 class="control-label">PASS</h2>
         </button>
     </div>
+{{!-- MODALS --}}
+    {{!-- Pre-Game Option(s) Modal -- choose opponent --}}
+    <div class="modal" id="pre-game-modal">
+        <div id="pre-game-modal-content">
+            <p>Who do you want to play?</p>
+            <select id="dropdown"  onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;">
+                {{#each teams}}
+                    {{#unless minnesota}}
+                    <option value="[{{O_rush_YPA}},{{O_pass_YPA}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
+                    {{/unless}}
+                {{/each}}
+            </select>
+            <button id="close-btn" onclick="document.getElementById('pre-game-modal').style.display='none'" class="control-button">
+                <h2 class="control-label">PLAY!</h2>
+            </button>
+        </div>
+    </div>
+    {{!-- Post-Game Modal --}}
+    <div class="modal" id="post-game-modal" style="display:none">
+        <div id="pre-game-modal-content">
+            <div id="end-stats">
+                <div class="end-stat">
+                    <div class="end-unit-div">
+                        <h1 id="points">00</h1>
+                        <ul class="unit">POINTS</ul>
+                    </div>
+                </div>
+                <div class="end-stat">
+                    <div class="end-unit-div">
+                        <h1 id="togo">10</h1>
+                        <ul class="unit">YARDS</ul>
+                    </div>
+                </div>
+            </div>
+            <p>Enter a username to see if you made the leaderboard!</p>
+            <form action="/leaderboard" method="POST">
+                <div class="form-group">
+                    <input type="text" id="nameInput" name="name" placeholder="Username">
+                </div> 
+                <button id="sub-btn" type="submit"  class="control-button">
+                    <h2 class="control-label">SUBMIT</h2>
+                </button>
+            </form>
+        </div>
+    </div>
+    {{!-- In-Game Pop-ups / Modals --}}
+    <h1 id="in-game-message">+/- # YARDS</h1>
 </main>
 
