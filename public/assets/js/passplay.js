@@ -20,6 +20,12 @@ let totalTime = 900000;
 let gameTime = 30000;
 let turnoverTime = 90000; 
 
+var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
+const opponentOffRun = opponentstats[0];
+const opponentOffPass = opponentstats[1];
+const opponentDefRun = opponentstats[2];
+const opponentDefPass = opponentstats[3];
+
 $( document ).ready(function(){
 // passplay function is the function that allows for a random pass play to be run
 function passPlay() {
@@ -64,7 +70,7 @@ function passPlay() {
 
 
     function getRandomInt(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.floor( Math.random() * (max - min) + min);
     }
 // when a pass is thrown but not completed
     function incompletePass() {
@@ -83,7 +89,7 @@ function passPlay() {
     }
 // an average pass play that gives a random number between the offense and defense average
     function normalPass() {
-        let yards = getRandomInt(offPass, defPass)
+        let yards = getRandomInt(offPass, opponentDefPass)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Pass complete for a gain of ${roundedYards} yards!`)
         passYardage += roundedYards
@@ -148,7 +154,7 @@ function runPlay() {
         };
     }
     function getRandomInt(min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.floor( Math.random() * (max - min) + min);
     }
 
     function bigRunPlay() {
@@ -171,7 +177,7 @@ function runPlay() {
 
 
     function normalRun() {
-        let yards = getRandomInt(offRun, defRun)
+        let yards = getRandomInt(offRun, opponentDefRun)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`The Vikings pound the ball for a gain of ${roundedYards} yards!`)
         runYardage += roundedYards
