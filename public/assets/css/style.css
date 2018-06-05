@@ -240,6 +240,11 @@
         bottom: 50%;
         width: 100%;
     }
+    #in-game-yardage{
+        position: fixed;
+        bottom: 40%;
+        width: 100%;
+    }
 /* Pre-Game Modal */
     #pre-game-modal,
     #post-game-modal {
@@ -318,6 +323,7 @@
     #game-header,
     #game-header-shade,
     #in-game-message,
+    #in-game-yardage,
     #lineup-div {
         width: 490px;
     }

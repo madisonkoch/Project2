@@ -19,6 +19,10 @@ let downs = 1
 let totalTime = 900000;
 let gameTime = 30000;
 let turnoverTime = 90000; 
+// the sum of yards gained & lossed throughout the entire game
+let netYards =0;
+// the sum of yards gained durring until a touchdown or turnover occurs
+let possessionYards = 0;
 
 $( document ).ready(function(){
 // passplay function is the function that allows for a random pass play to be run
@@ -69,6 +73,8 @@ function passPlay() {
 // when a pass is thrown but not completed
     function incompletePass() {
         console.log("The pass was incomplete")
+        $("#in-game-message").text("-INCOMPLETE-");
+        $("#in-game-yardage").text("");
         passYardage = 0
         return passYardage
     }
@@ -77,6 +83,11 @@ function passPlay() {
         let yards = getRandomInt(8, 1)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Oooohh.  The Vikings got blown up by a sack for a loss of ${roundedYards} yards!`)
+        $("#in-game-message").text("SACK!");
+        $("#in-game-yardage").text("-"+roundedYards+" YARDS");
+        netYards -=roundedYards;
+        possessionYards -=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         passYardage -= roundedYards
         console.log(passYardage)
         return passYardage
@@ -86,6 +97,11 @@ function passPlay() {
         let yards = getRandomInt(offPass, defPass)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Pass complete for a gain of ${roundedYards} yards!`)
+        $("#in-game-message").text("COMPLETE");
+        $("#in-game-yardage").text("+"+roundedYards+" YARDS")
+        netYards += roundedYards;  
+        possessionYards +=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         passYardage += roundedYards
         console.log(passYardage)
         return passYardage
@@ -95,6 +111,11 @@ function passPlay() {
         let yards = getRandomInt(80, 20)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Holy fucking shit!  The Vikings strike for ${roundedYards} yards!`)
+        $("#in-game-message").text("HOLY SKOL! HE CAUGHT IT!");
+        $("#in-game-yardage").text("+"+roundedYards+" YARDS");
+        netYards += roundedYards;
+        possessionYards +=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         passYardage += roundedYards
         console.log(passYardage)
         return passYardage
@@ -155,6 +176,11 @@ function runPlay() {
         let yards = getRandomInt(80, 20)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Holy cow!  The vikings strike for a ${roundedYards} yard play!`)
+        $("#in-game-message").text("LOOK AT THAT RUN!!!");
+        $("#in-game-yardage").text("+"+roundedYards+" YARDS");
+        netYards += roundedYards;
+        possessionYards +=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         runYardage += roundedYards
         console.log(runYardage)
         return runYardage
@@ -164,6 +190,11 @@ function runPlay() {
         let yards = getRandomInt(8, 1)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Holy smokes!  The defense just stuffed the vikings for a loss of ${roundedYards} yards!`)
+        $("#in-game-message").text("What. A. Defense...");
+        $("#in-game-yardage").text("-"+roundedYards+" YARDS");
+        netYards -+ roundedYards;
+        possessionYards -=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         runYardage -= roundedYards
         console.log(runYardage)
         return runYardage
@@ -174,13 +205,20 @@ function runPlay() {
         let yards = getRandomInt(offRun, defRun)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`The Vikings pound the ball for a gain of ${roundedYards} yards!`)
+        $("#in-game-message").text("");
+        $("#in-game-yardage").text("+"+roundedYards+" YARDS");
+        netYards += roundedYards;
+        possessionYards +=roundedYards;
+        console.log("Pos Yards = "+ possessionYards);
         runYardage += roundedYards
-        console.log(runYardage)
+        console.log("Run Yardage: "+runYardage)
         return runYardage
     }
 
     function noGain() {
         console.log("The defense comes up big and stuffs the runner for no gain")
+        $("#in-game-message").text("No Gain!");
+        $("#in-game-yardage").text("");
     }
 
     var probabilitilized = new Probability({ p: "8%", f: bigRunPlay }, { p: "8%", f: bigDefPlay }, { p: "60%", f: normalRun }, { p: "14%", f: noGain })
@@ -198,12 +236,16 @@ function totalYards (){
         downs = 1
         currentYardage = 0;
         totalYardage = 20;
+        possessionYards=0;
         console.log("Touchdown!")
+        $("#in-game-message").text("TOUCHDOWN!!!");
+
 }}
 // this calcualtes whether the offense gained at least 10 yards in 4 plays and resets the downs to 1 if they did
 function firstDown (){
     if (currentYardage >= 10) {
         console.log("First Down!"); 
+        $("#in-game-message").text("FIRST DOWN!!!");
         downs = 1
         currentYardage = 0
     } else {
@@ -219,6 +261,7 @@ function totalDowns(){
         downs = 1
         currentYardage = 0
         totalTime -= turnoverTime
+        possessionYards=0;
     }
 }
 
@@ -235,7 +278,7 @@ $("#pass-btn").on("click", function() {
     // document.getElementById("data_place").innerHTML=totalYardage
     document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
-    
+    ballPosition();
   });
 
   $("#run-btn").on("click", function() {
@@ -251,6 +294,7 @@ $("#pass-btn").on("click", function() {
     // document.getElementById("data_place").innerHTML=totalYardage
     document.getElementById("points").innerHTML=totalPoints
     console.log("current yards", currentYardage)
+    ballPosition();
   });
 
 // functions to run time off the clock when either button is clicked
