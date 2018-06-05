@@ -225,12 +225,9 @@
     }
     #in-game-message {
         position: fixed;
-        bottom: 85px;
+        bottom: 50%;
         width: 100%;
-        text-align: center;
     }
-
-
 /* Pre-Game Modal */
     #pre-game-modal,
     #post-game-modal {
