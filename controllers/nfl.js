@@ -18,6 +18,11 @@ module.exports = function(app) {
 
 // * Get all teams
     app.get("/", function(req, res){
+        // the actual functionality of the app
+        res.render("index");
+    })
+
+    app.get("/game", function(req, res){
         db.teams.findAll({
             // attributes: ['team_name']
         })
@@ -25,11 +30,16 @@ module.exports = function(app) {
             var teamsObject = {
                 teams: data
             };
-            // console.log('teamsObject', teamsObject);
+            //console.log('teamsObject', teamsObject);
             // eventually render this info
-            res.render("gameover", teamsObject);
+            res.render("game", teamsObject)
         });
     });
+
+    app.get("/about", function(req, res){
+        // the actual functionality of the app
+        res.render("about");
+    })
 
 // // * Get selected team data
 //     app.get("/team", function(req, res){
@@ -49,14 +59,15 @@ module.exports = function(app) {
 
     // * Get top 10 scores 
     app.get("/leaderboard", function(req, res){
-        // a leraderboard of all the high scores
-        db.user.findAll({ limit: 10,
-           order: [
-               ['points', 'DESC'],
-        ],      
-        })
-        .then(function(dbUser) {  
-            res.json(dbUser);
+        // a leaderboard of all the high scores
+        db.user.findAll({ limit: 10, order: [['points', 'DESC'],],})
+        .then(function(top) {  
+            //console.log(top);
+            var userobj = {
+                users : top
+            };
+            //console.log(userobj);
+            res.render("leaderboard", userobj)
     });
 
 });
@@ -85,9 +96,7 @@ module.exports = function(app) {
     
 
     
-    // app.get("/game", function(req, res){
-    //     // the actual functionality of the app
-    // })
+  
     
     // app.get("/profile", function(req, res){
         // generated user profiles after logging in

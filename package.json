@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "Group Project",
   "main": "server.js",
+  "directories": {
+    "test": "./public/assets/js/test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha || true",
     "start": "node server.js"
   },
   "repository": {
@@ -22,6 +25,7 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "moment": "^2.22.2",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.37.10"

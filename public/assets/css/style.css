@@ -1,18 +1,19 @@
 @import url(reset.css);
 /* HTML */
     html {
+        background-color: #479801;
+    }
+    body    {
+        background-color: transparent;
+        height: -webkit-fill-available;
         min-height: 100%;
         background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
         background-size: cover;
     }
-    body    {
-        background-color: transparent;
-        min-height: 100%;
-    }
 
 
 /* Text */
-    h2  {
+    h2,a,i  {
         color: white;
         text-align: center;
         font-family: 'Titan One', cursive;
@@ -21,10 +22,14 @@
         font-size: 25px;
         padding-top: 10px;
     }
-    h3,p,li,ul    {
+
+    h3,p,li,ul,option,select, input    {
         color: black;
         font-family: 'Fredoka One', cursive;
         font-size: 20px;
+    }
+    select {
+        color: grey;
     }
     h1 {
         color: white;
@@ -37,29 +42,43 @@
     }
 
 /* Header */
-    header {
-        margin-top: 23px;
+    header,
+    #game-header {
         height: 95px;
         background-color: red;
         border-top: solid black 4px;
         border-bottom: solid black 8px;
+        position: absolute;
+        width: 100%;
+        margin-top: 23px;
     }
-    #header-shade {
+
+    .header-shade {
         background-color: rgba(0, 0, 0, 0.541);
         height: 34px;
         width: 100%;
         position: absolute;
-        top: 98px;
+        top: 70px;
     }
     .subheader-div  {
-        position: absolute;
-        top: 90px;
         width: 100%;
+        padding-top: -90px;
+        position: sticky;
+        margin-top: -6px;
+    }
+    .game-subheader-div  {
+        width: 100%;
+        padding-top: -90px;
+        position: absolute;
+        top: -7px;
     }
     .subheader  {
         color: #FEC524;
         text-align: center;
         -webkit-text-stroke: 2px black;
+    }
+    .header-spacer {
+        height: 95px;
     }
   
  /* Menu */
@@ -71,6 +90,7 @@
         margin-right: auto;
         border: solid black 3px;
         outline: solid #d6d6d6 1px;
+        cursor: pointer;
     }
     .menu-button:hover  {
         background-color: blue;
@@ -81,6 +101,26 @@
     #menu-rank, #menu-about  {
         margin-top: 20px;
     }
+/* Back to Main Menu Button */
+    i {
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    .left {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+    }
+    #back-div {
+        display: inline-flex;
+    }
+    #main-menu-btn:hover {
+        background-color: blue;
+    }
+
 
 /* Footer */
     footer {
@@ -88,7 +128,7 @@
     }
 
 /* About Page */
-    #developers  {
+    #developers, #instructions  {
         width: 65%;
         background-color: rgba(255, 255, 255, 0.65);
         margin-left: auto;
@@ -101,6 +141,9 @@
         margin-bottom: 10px;
         padding-top: 10px;
     }
+    #instruction {
+        padding: 10px;
+    }
 
 /* Leaderboard Page */
     .top-five   {
@@ -108,13 +151,10 @@
         width: 65%;  
         margin-left: auto;
         margin-right: auto;
-        margin-top: 35px; 
-    }
-    .top-five-rank  {
-        width: 10%;
+        margin-top: 20px; 
     }
     .top-five-name  {
-        width: 40%;
+        width: 50%;
     }
     .top-five-points    {
         width: 50%;
@@ -122,104 +162,184 @@
     }
 
 /* Game */
-#scoreboard {
-    background-color: red;
-    height: 65px;
-    width: 100%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 30px;
-}
-.stat {
-    width: 33%;
-    text-align: center;
-}
-.unit-div {
-    display: flex;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-#down, #togo, #points   {
-    margin-top: 0;
-    font-size: 40px;
-}
-.unit {
-    padding-top: 7px;
-    font-size: 14px;
-    padding-left: 2px;
+    #scoreboard {
+        background-color: red;
+        height: 95px;
+        width: 100%;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+        top: -4px;
+        border-top: solid black 4px;
+        border-bottom: solid black 8px;
+    }
+    .stat {
+        width: 33%;
+        text-align: center;
+    }
+    .unit-div {
+        display: flex;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #down, #togo, #points   {
+        margin-top: 0;
+        font-size: 40px;
+    }
+    .unit {
+        padding-top: 7px;
+        font-size: 14px;
+        padding-left: 2px;
+    }
+    .timer-div {
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: fit-content;
+        position: relative;
+        top: -8px;
+    }
+    #timer {
+        padding-left: 15px;
+    }
+    #lineup-div {
+        position: absolute;
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
+    }
+    #lineup {
+        position: relative;
+        width: 75%;
+        margin-left: 12.5%;
+    }
+    #controls {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    .control-button  {
+        height: 55px;
+        background-color: #FEC524;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid black 3px;
+        outline: solid #d6d6d6 1px;
+    }
+    .control-label {
+        padding-top: 0px;
+    }
+    #pass-btn{
+        float: right;
+    }
+    #in-game-message {
+        position: fixed;
+        bottom: 50%;
+        width: 100%;
+    }
+    #in-game-yardage{
+        position: fixed;
+        bottom: 40%;
+        width: 100%;
+    }
+/* Pre-Game Modal */
+    #pre-game-modal,
+    #post-game-modal {
+        display: block; /* Show by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+
+    /* Modal Content/Box */
+        #pre-game-modal-content,
+        #post-game-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            width: 80%;
+            height: fit-content;
+            margin-top: 150px;
+        }
+        #dropdown {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+    /* Modal Close Button */
+        #close-btn,
+        #sub-btn {
+            width: 100%;
+        }
+
+/* Post-Game Modal */
+    input   {
+        width: 100%;
+        margin-top: 15px;
+    }
+    #end-stats{
+        width: 100%;
+        display: inline-flex;
+        margin-bottom: 15px;
+    }
+    .end-stat {
+        width: 50%;
+    }
+    .end-unit-div {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+/* Media Queries */
+@media only screen and (min-width: 490px) {
+    body {
+        background-size: 490px auto;
+        background-attachment: fixed;
+        background-position: center bottom;
+    }
+    main {
+        max-width: 490px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #pre-game-modal-content {
+        max-width: 350px;
+    } 
+    #controls,
+    .subheader-div,
+    #scoreboard,
+    #game-header,
+    #game-header-shade,
+    #in-game-message,
+    #in-game-yardage,
+    #lineup-div {
+        width: 490px;
+    }
+    .subheader-div{
+        width: 490px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
-/* Modal */
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Modal Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-/* The Close Button */
-
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
+/* Overwrite existing styles */
+a:hover{
     text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
     color: white;
 }
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+.control-button:hover {
+    background-color: blue;
 }
+

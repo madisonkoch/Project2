@@ -7,7 +7,9 @@ module.exports =
 {
   "development": {
     "username": "root",
-    "password": "Koji@191991",
+
+    "password": "escuela5512",
+
     "database": "NFL_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
