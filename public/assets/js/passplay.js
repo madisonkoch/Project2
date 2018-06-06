@@ -34,6 +34,8 @@ let turnoverTime = 90000;
 let netYards =0;
 // the sum of yards gained durring until a touchdown or turnover occurs
 let possessionYards = 0;
+// the game's net yards
+var gameYards = 0;
 
 $( document ).ready(function(){
 // passplay function is the function that allows for a random pass play to be run
@@ -98,6 +100,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("-"+roundedYards+" YARDS");
             netYards -=roundedYards;
             possessionYards -=roundedYards;
+            gameYards -= roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             passYardage -= roundedYards
             console.log(passYardage)
@@ -112,6 +115,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("+"+roundedYards+" YARDS")
             netYards += roundedYards;  
             possessionYards +=roundedYards;
+            gameYards += roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             passYardage += roundedYards
             console.log(passYardage)
@@ -126,6 +130,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("+"+roundedYards+" YARDS");
             netYards += roundedYards;
             possessionYards +=roundedYards;
+            gameYards += roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             passYardage += roundedYards
             console.log(passYardage)
@@ -191,6 +196,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("+"+roundedYards+" YARDS");
             netYards += roundedYards;
             possessionYards +=roundedYards;
+            gameYards += roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             runYardage += roundedYards
             console.log(runYardage)
@@ -205,6 +211,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("-"+roundedYards+" YARDS");
             netYards -+ roundedYards;
             possessionYards -=roundedYards;
+            gameYards -= roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             runYardage -= roundedYards
             console.log(runYardage)
@@ -220,6 +227,7 @@ $( document ).ready(function(){
             $("#in-game-yardage").text("+"+roundedYards+" YARDS");
             netYards += roundedYards;
             possessionYards +=roundedYards;
+            gameYards += roundedYards;
             console.log("Pos Yards = "+ possessionYards);
             runYardage += roundedYards
             console.log(runYardage)
@@ -309,8 +317,10 @@ $( document ).ready(function(){
         // document.getElementById("data_place").innerHTML=totalYardage
         document.getElementById("points").innerHTML=totalPoints
         console.log("current yards", currentYardage)
+        console.log("game yards = "+gameYards);
         ballPosition();
         decreaseTime();
+        gameEnd();
     });
 
     $("#run-btn").on("click", function() {
@@ -327,8 +337,10 @@ $( document ).ready(function(){
         // document.getElementById("data_place").innerHTML=totalYardage
         document.getElementById("points").innerHTML=totalPoints
         console.log("current yards", currentYardage)
+        console.log("game yards = "+gameYards);
         ballPosition();
         decreaseTime();
+        gameEnd();
     });
 
 // functions to run time off the clock when either button is clicked
@@ -350,15 +362,15 @@ $( document ).ready(function(){
         //display time remaining in mm:ss format on DOM
         let timer = moment.utc(totalTime).format("mm:ss")
         $("#timer").text(timer);
-        // let timeDOM = document.getElementById("timer");
-        // timeDOM.text = timer;
     };
 
-    // Show post-game modal when time runs out
-    // function gameEnd(){
-    //     if (timer===0){
-    //         $("#post-game-modal").css({'display':'block'});
-    //     }
-    // };
+//Show post-game modal when time runs out
+    function gameEnd(){
+        if (totalTime<=0){
+            $("#post-game-modal").css({'visibility':'visible'});
+            document.getElementById("endPoints").innerHTML=totalPoints;
+            document.getElementById("endYards").innerHTML=gameYards;
+        }
+    };
 
 }); //closes the on document ready
