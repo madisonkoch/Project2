@@ -1,7 +1,10 @@
 //Game Page
     // Save selected opponent's stats in local storage
+        // Set default to first team on dropdown since values change on dropdown change
+        let opponentValues = "[Arizona,4,11]";
+        localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
         $('#dropdown').change(function() {
-            var opponentValues = this.value;
+            let opponentValues = this.value;
         localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
         // append to different screen
         });
