@@ -20,8 +20,6 @@
     });
 
 //Game Page
-    if (top.location.pathname === '/game')
-    {
     // Save selected opponent's stats in local storage
         // Set default to first team on dropdown since values change on dropdown change
         let opponentValues = "[Arizona,4,11]";
@@ -107,7 +105,6 @@
                 //add new yardage to netYards
                 //rerun ball position
         });
-}
 
 //About Page
     //Show/hide Instructions
