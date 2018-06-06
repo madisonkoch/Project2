@@ -88,7 +88,7 @@ function passPlay() {
     }
 // an average pass play that gives a random number between the offense and defense average
     function normalPass() {
-        let yards = getRandomInt(offPass, defPass)
+        let yards = getRandomInt(offPass, opponentDefPass)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Pass complete for a gain of ${roundedYards} yards!`)
         passYardage += roundedYards
@@ -176,7 +176,7 @@ function runPlay() {
 
 
     function normalRun() {
-        let yards = getRandomInt(offRun, defRun)
+        let yards = getRandomInt(offRun, opponentDefRun)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`The Vikings pound the ball for a gain of ${roundedYards} yards!`)
         runYardage += roundedYards
