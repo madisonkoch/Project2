@@ -204,7 +204,7 @@
     #timer {
         padding-left: 15px;
     }
-    #lineup-div {
+    .lineup-div {
         position: absolute;
         box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
     }
@@ -324,7 +324,7 @@
     #game-header-shade,
     #in-game-message,
     #in-game-yardage,
-    #lineup-div {
+    .lineup-div {
         width: 490px;
     }
     .subheader-div{
@@ -337,7 +337,7 @@
     #lineup {
         width: 170px;
     }
-    #lineup-div{
+    .lineup-div{
         width: 100%;
     }
 }

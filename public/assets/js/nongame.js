@@ -1,3 +1,24 @@
+//All Pages
+    //Make lineup-div the entire height of screen
+    $(function(){
+        var windowH = $(window).height();
+        var divH = $('.lineup-div').height();
+        if(windowH > divH) {                            
+            $('.lineup-div').css({'height':($(window).height())+'px'});
+        }                                                                               
+        $(window).resize(function(){
+            var windowH = $(window).height();
+            var divH = $('.lineup-div').height();
+            var differenceH = windowH - divH;
+            var newH = divH + differenceH;
+            var truecontentH = $('#truecontent').height();
+            if(windowH > truecontentH) {
+                $('.lineup-div').css('height', (newH)+'px');
+            }
+    
+        })          
+    });
+
 //Game Page
     // Save selected opponent's stats in local storage
         // Set default to first team on dropdown since values change on dropdown change
@@ -9,7 +30,6 @@
         // append to different screen
         });
 
-
     //Close pre-game modal after
         var modal = document.getElementById('pre-game-modal');
 
@@ -20,25 +40,6 @@
             }
         }
     //Ball & Player Image
-        //Make div around image the entire height of screen
-            $(function(){
-                var windowH = $(window).height();
-                var divH = $('#lineup-div').height();
-                if(windowH > divH) {                            
-                    $('#lineup-div').css({'height':($(window).height())+'px'});
-                }                                                                               
-                $(window).resize(function(){
-                    var windowH = $(window).height();
-                    var divH = $('#lineup-div').height();
-                    var differenceH = windowH - divH;
-                    var newH = divH + differenceH;
-                    var truecontentH = $('#truecontent').height();
-                    if(windowH > truecontentH) {
-                        $('#lineup-div').css('height', (newH)+'px');
-                    }
-            
-                })          
-            });
         //Ball Position on Page    
             var ballOnTwenty;
             var currentYards;                    
@@ -104,8 +105,6 @@
                 //add new yardage to netYards
                 //rerun ball position
         });
-
-
 
 //About Page
     //Show/hide Instructions
