@@ -277,6 +277,23 @@ $( document ).ready(function(){
             $("#in-game-message").text("Turnover...");
         }
     }
+
+    // correct label for downs
+    function downsLabel(){
+        if (downs ===1){
+            document.getElementById("down-unit").innerHTML="ST";
+        }
+        else if (downs === 2){
+            document.getElementById("down-unit").innerHTML="ND";
+        }
+        else if (downs === 3){
+            document.getElementById("down-unit").innerHTML="RD";
+        }
+        else{
+            document.getElementById("down-unit").innerHTML="TH";
+        }
+    }
+
 //CLICK pass or run buttons
     $("#pass-btn").on("click", function() {
         passPlay(); 
@@ -285,7 +302,8 @@ $( document ).ready(function(){
         passYardage = 0
         firstDown();
         totalYards();
-        totalDowns(); 
+        totalDowns();
+        downsLabel();
         document.getElementById("down").innerHTML=downs
         document.getElementById("togo").innerHTML=(10-currentYardage)
         // document.getElementById("data_place").innerHTML=totalYardage
@@ -303,6 +321,7 @@ $( document ).ready(function(){
         totalYards();
         firstDown(); 
         totalDowns(); 
+        downsLabel();
         document.getElementById("down").innerHTML=downs
         document.getElementById("togo").innerHTML=(10-currentYardage)
         // document.getElementById("data_place").innerHTML=totalYardage
