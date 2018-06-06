@@ -1,3 +1,12 @@
+var args = JSON.parse(localStorage.getItem('opponentValues'));
+let opponentstatss = args.replace("[", '"');
+opponentstatss = opponentstatss.replace("]", ''); 
+let opponentstats = opponentstatss.split(",");
+console.log(opponentstats)
+// const opponentOffRun = parseInt(opponentstats[1]);
+const opponentDefRun = parseInt(opponentstats[1]);
+const opponentDefPass = parseInt(opponentstats[2]);
+
 // calculates how many yards gained by passing
 let passYardage = 0
 // calculates how many yards gained by rushing
@@ -5,11 +14,11 @@ let runYardage = 0
 // viking average yards per run
 const offRun = 6.2
 // opponents average rush yards allowed per run play
-const defRun = 3.4
+// const defRun = 3.4
 // viking average yards per pass
 const offPass = 8.5
 // opponents average rush yards allowed per ppass play
-const defPass = 4.6
+// const defPass = 4.6
 // totalYardage used to calculate field position and yardage to score
 let totalYardage = 20
 // current yardage used to calculate down vs distance 
@@ -20,10 +29,6 @@ let totalTime = 900000;
 let gameTime = 30000;
 let turnoverTime = 90000; 
 
-var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
-const opponentOffRun = opponentstats[0];
-const opponentDefRun = parseInt(opponentstats[2]);
-const opponentDefPass = parseInt(opponentstats[3]);
 
 // the sum of yards gained & lossed throughout the entire game
 let netYards =0;
