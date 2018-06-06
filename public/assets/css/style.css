@@ -215,15 +215,15 @@
     }
     #controls {
         position: absolute;
-        bottom: 20px;
+        bottom: 31px;
         width: 100%;
         padding-left: 5%;
         padding-right: 5%;
     }
     .control-button  {
-        height: 55px;
+        height: 45px;
         background-color: #FEC524;
-        width: 30%;
+        width: 28%;
         margin-left: auto;
         margin-right: auto;
         border: solid black 3px;
@@ -242,7 +242,7 @@
     }
     #in-game-yardage{
         position: fixed;
-        bottom: 40%;
+        bottom: 41px;
         width: 100%;
     }
 /* Pre-Game Modal */
@@ -333,11 +333,20 @@
         margin-right: auto;
     }
 }
+@media only screen and (max-width: 377px){
+    #lineup {
+        width: 170px;
+    }
+    #lineup-div{
+        width: 100%;
+    }
+}
 
 /* Overwrite existing styles */
 a:hover{
     text-decoration: none;
     color: white;
+    background-color: blue;
 }
 .control-button:hover {
     background-color: blue;
