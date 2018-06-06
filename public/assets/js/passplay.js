@@ -22,8 +22,8 @@ let turnoverTime = 90000;
 
 var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
 const opponentOffRun = opponentstats[0];
-const opponentDefRun = parseInt(opponentstats[1]);
-const opponentDefPass = parseInt(opponentstats[2]);
+const opponentDefRun = parseInt(opponentstats[2]);
+const opponentDefPass = parseInt(opponentstats[3]);
 
 $( document ).ready(function(){
 // passplay function is the function that allows for a random pass play to be run
@@ -271,6 +271,11 @@ function gameStart(){
 
 }
 
+// function gameEnd(){
+//     // display Madison's Modal
+//     $(`#madison's modal`).on('show.bs.modal')
+// }
+
 // fucntion when button clicked 
 $("#run-btn").on("click", function(){
 
@@ -313,7 +318,9 @@ $("#pass-btn").on("click", function(){
     }
 
 })
-
+// if (timer <= 0) {
+//     gameEnd(); 
+// }
 
 
 }); 
