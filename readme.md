@@ -2,9 +2,29 @@
 
 ## Project # 2
 
+## Description 
+Is a full-stack application backend with Node.js/Express/Sequelize/Handebars. Play as the vikings and run or pass your way to victory. Choose an NFL team to play against. The game uses real NFL team offense and defense stats paired with probability functions to determine the outcome of the play. Score big and you reach legendary status by making it on the leaderboard.
 
+## Demo
 
+## Installation
 
+To run the application locally, first clone this repository 
+```javascript
+git clone https://github.com/madisonkoch/Project2.git
+```
+Next, move into the project folder and install the dependencies
+```javascript
+cd Project2
+npm install
+```
+Finally, run the server locally
+```javascript
+node server
+```
+You can now play the game in the browser at URL: ```<b> http://localhost:3000/ </b> ```
+
+SKOL VIKINGS!
 
 ## User Story
 
