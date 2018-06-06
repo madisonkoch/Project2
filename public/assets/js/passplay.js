@@ -286,22 +286,6 @@ $( document ).ready(function(){
         }
     }
 
-<<<<<<< HEAD
-    // displayed timer when the game starts
-    let timer = moment.utc(totalTime).format("mm:ss")
-    console.log(timer);
-
-    // display it on the dom
-    $("#timer").text(timer);
-
-}
-
-// function gameEnd(){
-//     if (timer===0){
-//         $("#post-game-modal").css({'display':'block'});
-//     }
-// };
-=======
     // correct label for downs
     function downsLabel(){
         if (downs ===1){
@@ -317,7 +301,6 @@ $( document ).ready(function(){
             document.getElementById("down-unit").innerHTML="TH";
         }
     }
->>>>>>> e83246f5c5b311e394568438d7672dcec3974819
 
 //CLICK pass or run buttons
     $("#pass-btn").on("click", function() {
