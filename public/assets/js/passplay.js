@@ -22,8 +22,8 @@ let turnoverTime = 90000;
 
 var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
 const opponentOffRun = opponentstats[0];
-const opponentDefRun = parseInt(opponentstats[1]);
-const opponentDefPass = parseInt(opponentstats[2]);
+const opponentDefRun = parseInt(opponentstats[2]);
+const opponentDefPass = parseInt(opponentstats[3]);
 
 // the sum of yards gained & lossed throughout the entire game
 let netYards =0;
@@ -100,7 +100,7 @@ function passPlay() {
     }
 // an average pass play that gives a random number between the offense and defense average
     function normalPass() {
-        let yards = getRandomInt(offPass, defPass)
+        let yards = getRandomInt(offPass, opponentDefPass)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`Pass complete for a gain of ${roundedYards} yards!`)
         $("#in-game-message").text("COMPLETE");
@@ -208,7 +208,7 @@ function runPlay() {
 
 
     function normalRun() {
-        let yards = getRandomInt(offRun, defRun)
+        let yards = getRandomInt(offRun, opponentDefRun)
         let roundedYards = Math.round(yards * 10) / 10;
         console.log(`The Vikings pound the ball for a gain of ${roundedYards} yards!`)
         $("#in-game-message").text("");
@@ -316,6 +316,11 @@ function gameStart(){
 
 }
 
+// function gameEnd(){
+//     // display Madison's Modal
+//     $(`#madison's modal`).on('show.bs.modal')
+// }
+
 // fucntion when button clicked 
 $("#run-btn").on("click", function(){
 
@@ -358,7 +363,9 @@ $("#pass-btn").on("click", function(){
     }
 
 })
-
+// if (timer <= 0) {
+//     gameEnd(); 
+// }
 
 
 }); 
