@@ -316,13 +316,11 @@ function gameStart(){
 
 }
 
-// function gameEnd(){
-//     // display Madison's Modal
-//     $(`#madison's modal`).on('show.bs.modal')
-// }
+function gameEnd(){
+    if (timer===0){
+        $("#post-game-modal").css({'display':'block'});
+}
 
-// fucntion when button clicked 
-$("#run-btn").on("click", function(){
 
     // condition to restart the game 
     if (totalTime <= 0){
