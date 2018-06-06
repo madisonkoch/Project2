@@ -319,7 +319,8 @@ function gameStart(){
 function gameEnd(){
     if (timer===0){
         $("#post-game-modal").css({'display':'block'});
-}
+    }
+};
 
 
     // condition to restart the game 
@@ -360,13 +361,13 @@ $("#pass-btn").on("click", function(){
         $("#timer").text(timer);
     }
 
-})
+});
 // if (timer <= 0) {
 //     gameEnd(); 
 // }
 
 
-}); 
+//}); 
 
 
 
