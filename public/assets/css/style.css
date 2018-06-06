@@ -1,9 +1,6 @@
 @import url(reset.css);
 /* HTML */
     html {
-        /* min-height: 100%;
-        background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
-        background-size: cover; */
         background-color: #479801;
     }
     body    {
@@ -12,7 +9,6 @@
         min-height: 100%;
         background: url("/assets/images/background-mobile-game-5.png") no-repeat center bottom;
         background-size: cover;
-        padding-top: 23px;
     }
 
 
@@ -26,11 +22,8 @@
         font-size: 25px;
         padding-top: 10px;
     }
-    a:hover{
-        text-decoration: none;
-        color: white;
-    }
-    h3,p,li,ul,option,select    {
+
+    h3,p,li,ul,option,select, input    {
         color: black;
         font-family: 'Fredoka One', cursive;
         font-size: 20px;
@@ -49,29 +42,43 @@
     }
 
 /* Header */
-    header {
+    header,
+    #game-header {
         height: 95px;
         background-color: red;
         border-top: solid black 4px;
         border-bottom: solid black 8px;
+        position: absolute;
+        width: 100%;
+        margin-top: 23px;
     }
-    #header-shade {
+
+    .header-shade {
         background-color: rgba(0, 0, 0, 0.541);
         height: 34px;
         width: 100%;
         position: absolute;
-        top: 98px;
+        top: 70px;
     }
     .subheader-div  {
         width: 100%;
         padding-top: -90px;
         position: sticky;
-        margin-top: -28px;
+        margin-top: -6px;
+    }
+    .game-subheader-div  {
+        width: 100%;
+        padding-top: -90px;
+        position: absolute;
+        top: -7px;
     }
     .subheader  {
         color: #FEC524;
         text-align: center;
         -webkit-text-stroke: 2px black;
+    }
+    .header-spacer {
+        height: 95px;
     }
   
  /* Menu */
@@ -157,13 +164,15 @@
 /* Game */
     #scoreboard {
         background-color: red;
-        height: 65px;
+        height: 95px;
         width: 100%;
         display: flex;
         margin-left: auto;
         margin-right: auto;
         position: absolute;
-        top: 30px;
+        top: -4px;
+        border-top: solid black 4px;
+        border-bottom: solid black 8px;
     }
     .stat {
         width: 33%;
@@ -189,20 +198,20 @@
         margin-left: auto;
         margin-right: auto;
         width: fit-content;
+        position: relative;
+        top: -8px;
     }
     #timer {
         padding-left: 15px;
     }
     #lineup-div {
-        width: 100%;
+        position: absolute;
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
     }
     #lineup {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 75%;
-        top: 32px;
         position: relative;
+        width: 75%;
+        margin-left: 12.5%;
     }
     #controls {
         position: absolute;
@@ -226,9 +235,19 @@
     #pass-btn{
         float: right;
     }
-
+    #in-game-message {
+        position: fixed;
+        bottom: 50%;
+        width: 100%;
+    }
+    #in-game-yardage{
+        position: fixed;
+        bottom: 40%;
+        width: 100%;
+    }
 /* Pre-Game Modal */
-    #pre-game-modal {
+    #pre-game-modal,
+    #post-game-modal {
         display: block; /* Show by default */
         position: fixed; /* Stay in place */
         z-index: 1; /* Sit on top */
@@ -243,7 +262,8 @@
     }
 
     /* Modal Content/Box */
-        #pre-game-modal-content {
+        #pre-game-modal-content,
+        #post-game-modal-content {
             background-color: #fefefe;
             margin: 15% auto;
             padding: 20px;
@@ -258,9 +278,29 @@
         }
 
     /* Modal Close Button */
-        #close-btn {
+        #close-btn,
+        #sub-btn {
             width: 100%;
         }
+
+/* Post-Game Modal */
+    input   {
+        width: 100%;
+        margin-top: 15px;
+    }
+    #end-stats{
+        width: 100%;
+        display: inline-flex;
+        margin-bottom: 15px;
+    }
+    .end-stat {
+        width: 50%;
+    }
+    .end-unit-div {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 /* Media Queries */
 @media only screen and (min-width: 490px) {
@@ -274,12 +314,17 @@
         margin-left: auto;
         margin-right: auto;
     }
-    #pre-game-modal-content{
+    #pre-game-modal-content {
         max-width: 350px;
     } 
     #controls,
     .subheader-div,
-    #scoreboard {
+    #scoreboard,
+    #game-header,
+    #game-header-shade,
+    #in-game-message,
+    #in-game-yardage,
+    #lineup-div {
         width: 490px;
     }
     .subheader-div{
@@ -287,5 +332,14 @@
         margin-left: auto;
         margin-right: auto;
     }
-
 }
+
+/* Overwrite existing styles */
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+.control-button:hover {
+    background-color: blue;
+}
+

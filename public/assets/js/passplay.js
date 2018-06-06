@@ -22,9 +22,8 @@ let turnoverTime = 90000;
 
 var opponentstats = JSON.parse(localStorage.getItem('opponentValues'));
 const opponentOffRun = opponentstats[0];
-const opponentOffPass = opponentstats[1];
-const opponentDefRun = opponentstats[2];
-const opponentDefPass = opponentstats[3];
+const opponentDefRun = parseInt(opponentstats[1]);
+const opponentDefPass = parseInt(opponentstats[2]);
 
 $( document ).ready(function(){
 // passplay function is the function that allows for a random pass play to be run
@@ -183,6 +182,7 @@ function runPlay() {
         runYardage += roundedYards
         console.log(runYardage)
         return runYardage
+        
     }
 
     function noGain() {
