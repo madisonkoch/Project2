@@ -316,11 +316,11 @@ function gameStart(){
 
 }
 
-function gameEnd(){
-    if (timer===0){
-        $("#post-game-modal").css({'display':'block'});
-    }
-};
+// function gameEnd(){
+//     if (timer===0){
+//         $("#post-game-modal").css({'display':'block'});
+//     }
+// };
 
 
     // condition to restart the game 
