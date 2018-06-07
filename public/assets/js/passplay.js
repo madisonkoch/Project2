@@ -371,6 +371,27 @@ $( document ).ready(function(){
             document.getElementById("endPoints").innerHTML=totalPoints;
             document.getElementById("endYards").innerHTML=gameYards;
         }
+
     };
+
+    $('#sub-btn').on("click", function(event){
+        event.preventDefault(); 
+        console.log("I clicked the button, Dad.")
+
+        var newUser = {
+            username: $("#nameInput").val().trim(), 
+            points: $("#endPoints").val().trim(), 
+            yards:$("#endYards").val().trim()
+        }; 
+
+        $.ajax("api/users", {
+            type: "POST", 
+            data: newUser
+        }) .then(
+            console.log("No you're a jerk!")
+        )
+    })
+    
+
 
 }); //closes the on document ready
