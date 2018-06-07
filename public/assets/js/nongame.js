@@ -43,7 +43,8 @@
         localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
         $('#dropdown').change(function() {
             let opponentValues = this.value;
-        localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
+            localStorage.setItem('opponentValues', JSON.stringify(opponentValues));
+            console.log(opponentValues);
         // append to different screen
         });
 

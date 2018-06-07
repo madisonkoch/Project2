@@ -63,9 +63,7 @@
             <p>Who do you want to play?</p>
             <select id="dropdown"  onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;">
                 {{#each teams}}
-                    {{#unless minnesota}}
                     <option value="[{{team_name}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
-                    {{/unless}}
                 {{/each}}
             </select>
             <button id="close-btn" onclick="document.getElementById('pre-game-modal').style.display='none'" class="control-button">
