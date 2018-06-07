@@ -1,3 +1,13 @@
+
+var audioBoo = new Audio("assets/audio/boo.mp3");
+var audioHorn = new Audio("assets/audio/horn.mp3");
+var audioSkol = new Audio("assets/audio/skol.mp3");
+var audioTouchdown = new Audio("assets/audio/touchdown.mp3");
+
+
+
+
+
 var args = JSON.parse(localStorage.getItem('opponentValues'));
 let opponentstatss = args.replace("[", '"');
 opponentstatss = opponentstatss.replace("]", ''); 
@@ -11,7 +21,7 @@ const opponentDefPass = parseInt(opponentstats[2]);
 let passYardage = 0
 // calculates how many yards gained by rushing
 let runYardage = 0
-// viking average yards per run
+// viking average yards per runo
 const offRun = 6.2
 // opponents average rush yards allowed per run play
 // const defRun = 3.4
@@ -36,6 +46,16 @@ let netYards =0;
 let possessionYards = 0;
 
 $( document ).ready(function(){
+    function resetAudio() {
+        audioBoo.pause();
+        audioBoo.currentTime = 0;
+        audioSkol.pause();
+        audioSkol.currentTime = 0;
+        audioHorn.pause();
+        audioHorn.currentTime = 0;
+        audioTouchdown.pause();
+        audioTouchdown.currentTime = 0;
+    }
 // passplay function is the function that allows for a random pass play to be run
 function passPlay() {
     var toString = Object.prototype.toString,
@@ -114,7 +134,7 @@ function passPlay() {
         possessionYards +=roundedYards;
         console.log("Pos Yards = "+ possessionYards);
         passYardage += roundedYards
-        console.log(passYardage)
+        console.log(passYardage);
         return passYardage
     }
 // the offense make a "big play" (over 20 yards) and gets a random number between 20 and 80
@@ -250,6 +270,7 @@ function totalYards (){
         totalYardage = 20;
         possessionYards=0;
         console.log("Touchdown!")
+        audioTouchdown.play();
         $("#in-game-message").text("TOUCHDOWN!!!");
 }}
 // this calcualtes whether the offense gained at least 10 yards in 4 plays and resets the downs to 1 if they did
@@ -257,6 +278,7 @@ function firstDown (){
     if (currentYardage >= 10) {
         console.log("First Down!"); 
         $("#in-game-message").text("FIRST DOWN!!!");
+        audioHorn.play();
         downs = 1
         currentYardage = 0
     } else {
@@ -267,6 +289,7 @@ function firstDown (){
 // if they did not gain 10 yards in 4 plays, this resets total yardage to 20, runs 1:30 off the clock and resets down and distance 
 function totalDowns(){
     if (downs > 4 && currentYardage < 10 ) {
+        audioBoo.play();
         console.log("turnover")
         totalYardage = 20
         downs = 1
@@ -278,6 +301,7 @@ function totalDowns(){
 }
 
 $("#pass-btn").on("click", function() {
+    resetAudio();
     passPlay(); 
     totalYardage += passYardage
     currentYardage += passYardage
@@ -323,7 +347,9 @@ function gameStart(){
 
 function gameEnd(){
     if (timer===0){
+        audioSkol.play();
         $("#post-game-modal").css({'display':'block'});
+
     }
 };
 
@@ -348,6 +374,7 @@ function gameEnd(){
 })
 // fucntion when button clicked 
 $("#pass-btn").on("click", function(){
+    resetAudio();
 
     // condition to restart the game 
     if (totalTime <= 0){
