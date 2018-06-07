@@ -81,27 +81,5 @@ module.exports = function(app) {
             res.redirect("/leaderboard");
         });
     });
-
-    // app.post
-    
-    // app.post("/api/teams", function(req, res){
-    //     //response
-    // })
-    
-    // app.put("/api/teams/:id", function(req, res){
-    //     //response
-    // })
-    
-
-    
-  
-    
-    // app.get("/profile", function(req, res){
-        // generated user profiles after logging in
-        // will have some statistics
-    // })
-    
-    
-
 };
 
