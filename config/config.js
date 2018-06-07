@@ -8,7 +8,7 @@ module.exports =
   "development": {
     "username": "root",
 
-    "password": "#Rowgophs8",
+    "password": "escuela5512",
 
     "database": "NFL_DB",
     "host": "127.0.0.1",

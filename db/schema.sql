@@ -15,7 +15,9 @@ CREATE TABLE teams (
 
 CREATE TABLE users (
 
+  id INT (10) AUTO_INCREMENT NOT NULL, 
   username VARCHAR(50) NOT NULL UNIQUE,
   points INT (10) NOT NUll,
-  primary key(username)
+  yards INT (10) NOT NULL, 
+  primary key(id)
 );
