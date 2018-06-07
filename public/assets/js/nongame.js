@@ -1,25 +1,42 @@
 //All Pages
-    //Make lineup-div the entire height of screen
+    //Make non-game-main the entire height of screen
     $(function(){
         var windowH = $(window).height();
-        var divH = $('.lineup-div').height();
+        var divH = $('.non-game-main').height();
         if(windowH > divH) {                            
-            $('.lineup-div').css({'height':($(window).height())+'px'});
+            $('.non-game-main').css({'height':($(window).height())+'px'});
         }                                                                               
         $(window).resize(function(){
             var windowH = $(window).height();
-            var divH = $('.lineup-div').height();
+            var divH = $('.non-game-main').height();
             var differenceH = windowH - divH;
             var newH = divH + differenceH;
             var truecontentH = $('#truecontent').height();
             if(windowH > truecontentH) {
-                $('.lineup-div').css('height', (newH)+'px');
+                $('.non-game-main').css('height', (newH)+'px');
             }
-    
         })          
     });
 
 //Game Page
+    //Make lineup-div entrie height of screen
+        $(function(){
+            var windowH = $(window).height();
+            var divH = $('#lineup-div').height();
+            if(windowH > divH) {                            
+                $('#lineup-div').css({'height':($(window).height())+'px'});
+            }                                                                               
+            $(window).resize(function(){
+                var windowH = $(window).height();
+                var divH = $('#lineup-div').height();
+                var differenceH = windowH - divH;
+                var newH = divH + differenceH;
+                var truecontentH = $('#truecontent').height();
+                if(windowH > truecontentH) {
+                    $('#lineup-div').css('height', (newH)+'px');
+                }
+            })          
+        });
     // Save selected opponent's stats in local storage
         // Set default to first team on dropdown since values change on dropdown change
         let opponentValues = "[Arizona,4,11]";

@@ -22,6 +22,10 @@
         font-size: 25px;
         padding-top: 10px;
     }
+    a {
+        margin-top: 10px;
+        padding-top: 0px;
+    }
 
     h3,p,li,ul,option,select, input    {
         color: black;
@@ -60,11 +64,19 @@
         position: absolute;
         top: 70px;
     }
+    .header-shadow{
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
+        width: 490px;
+        height: 108px;
+        margin-top: -66px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .subheader-div  {
         width: 100%;
-        padding-top: -90px;
+        padding-top: 89px;
         position: sticky;
-        margin-top: -6px;
+        margin-bottom: 35px; 
     }
     .game-subheader-div  {
         width: 100%;
@@ -101,6 +113,10 @@
     #menu-rank, #menu-about  {
         margin-top: 20px;
     }
+    .field-shadow {
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
+    }
+
 /* Back to Main Menu Button */
     i {
         border: solid black;
@@ -148,7 +164,7 @@
 /* Leaderboard Page */
     .top-five   {
         display: flex;
-        width: 65%;  
+        width: 60%;  
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px; 
@@ -204,7 +220,7 @@
     #timer {
         padding-left: 15px;
     }
-    .lineup-div {
+    #lineup-div {
         position: absolute;
         box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
     }
@@ -309,10 +325,14 @@
         background-attachment: fixed;
         background-position: center bottom;
     }
-    main {
+    main{
         max-width: 490px;
         margin-left: auto;
         margin-right: auto;
+    }
+    .non-game-main{
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
+        padding-top: 25px;
     }
     #pre-game-modal-content {
         max-width: 350px;
@@ -324,21 +344,31 @@
     #game-header-shade,
     #in-game-message,
     #in-game-yardage,
-    .lineup-div {
+    #lineup-div {
         width: 490px;
     }
     .subheader-div{
         width: 490px;
         margin-left: auto;
         margin-right: auto;
+        padding-top: 64px;
+        position: sticky;
+        margin-bottom: 35px; 
+    }
+    .field-shadow {
+        box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.31), -12px 0 8px -4px rgba(0, 0, 0, 0.31);
+        top:0;
     }
 }
 @media only screen and (max-width: 377px){
     #lineup {
         width: 170px;
     }
-    .lineup-div{
+    #lineup-div{
         width: 100%;
+    }
+    .top-five{
+        width: 265px;
     }
 }
 
