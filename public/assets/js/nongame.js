@@ -117,11 +117,6 @@
             $(window).resize(function(){
                 ballPosition();
             });
-            
-            //Move ball as yardage accrues
-                //watch for #in-game-yardage to change
-                //add new yardage to netYards
-                //rerun ball position
         });
 
 //About Page

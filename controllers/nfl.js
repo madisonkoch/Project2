@@ -36,10 +36,11 @@ module.exports = function(app) {
         res.render("about");
     })
 
-// // * Get selected team data
-//     app.get("/team", function(req, res){
-//         db.team.findOne
-//     })
+    app.get("/*", function(req, res){
+        // the actual functionality of the app
+        res.render("index");
+    })
+
 
 
 
@@ -80,25 +81,5 @@ module.exports = function(app) {
             res.redirect("/leaderboard");
         });
     });
-    
-    // app.post("/api/teams", function(req, res){
-    //     //response
-    // })
-    
-    // app.put("/api/teams/:id", function(req, res){
-    //     //response
-    // })
-    
-
-    
-  
-    
-    // app.get("/profile", function(req, res){
-        // generated user profiles after logging in
-        // will have some statistics
-    // })
-    
-    
-
 };
 
