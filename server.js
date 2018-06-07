@@ -29,4 +29,4 @@ db.sequelize.sync({ force: false }).then(function() {
 
 })
 
-  
+//add something for heroku to push

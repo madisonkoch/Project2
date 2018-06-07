@@ -10,7 +10,7 @@
                 <ul>DOWN</ul>
                 <div class="unit-div">
                     <h1 id="down">1</h1>
-                    <ul class="unit">ST</ul>
+                    <ul class="unit" id="down-unit">ST</ul>
                 </div>
             </div>
             <div class="stat">
@@ -43,6 +43,10 @@
 
     </div>
 
+{{!-- In-Game Pop-ups / Modals --}}
+    <h1 id="in-game-message"></h1>
+    <h2 id="in-game-yardage"></h2>
+
 {{!-- Game play option "buttons" / Run or Pass --}}
     <div id="controls">
         <button id="run-btn" class="control-button">
@@ -59,9 +63,7 @@
             <p>Who do you want to play?</p>
             <select id="dropdown"  onmousedown="if(this.options.length>6){this.size=6;}"  onchange='this.size=0;' onblur="this.size=0;">
                 {{#each teams}}
-                    {{#unless minnesota}}
                     <option value="[{{team_name}},{{D_rush_YPA}},{{D_pass_YPR}}]" >{{team_name}}</option>;
-                    {{/unless}}
                 {{/each}}
             </select>
             <button id="close-btn" onclick="document.getElementById('pre-game-modal').style.display='none'" class="control-button">
@@ -70,24 +72,24 @@
         </div>
     </div>
     {{!-- Post-Game Modal --}}
-    <div class="modal" id="post-game-modal" style="display:none">
+    <div class="modal" id="post-game-modal" style="visibility:hidden">
         <div id="post-game-modal-content">
             <div id="end-stats">
                 <div class="end-stat">
                     <div class="end-unit-div">
-                        <h1 id="points">00</h1>
+                        <h1 id="endPoints">00</h1>
                         <ul class="unit">POINTS</ul>
                     </div>
                 </div>
                 <div class="end-stat">
                     <div class="end-unit-div">
-                        <h1 id="togo">10</h1>
+                        <h1 id="endYards">10</h1>
                         <ul class="unit">YARDS</ul>
                     </div>
                 </div>
             </div>
             <p>Enter a username to see if you made the leaderboard!</p>
-            <form action="/leaderboard" method="POST">
+            <form>
                 <div class="form-group">
                     <input type="text" id="nameInput" name="name" placeholder="Username">
                 </div> 
@@ -97,9 +99,12 @@
             </form>
         </div>
     </div>
+<<<<<<< HEAD
     {{!-- In-Game Pop-ups / Modals --}}
     <h1 id="in-game-message"></h1>
     <h2 id="in-game-yardage"></h2>
     <audio id="boo" src="/assets/audio/boo.mp3"> type="audio/mpeg" </audio>
+=======
+>>>>>>> 6fa7e1fe84867d23201165037fec654eb0c8b7e3
 
 </main>
