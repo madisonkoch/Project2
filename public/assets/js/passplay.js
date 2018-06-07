@@ -309,8 +309,8 @@ $( document ).ready(function(){
         currentYardage += passYardage
         passYardage = 0
         firstDown();
-        totalYards();
         totalDowns();
+        totalYards();
         downsLabel();
         document.getElementById("down").innerHTML=downs
         document.getElementById("togo").innerHTML=(10-currentYardage)
@@ -328,9 +328,9 @@ $( document ).ready(function(){
         totalYardage += runYardage
         currentYardage += runYardage
         runYardage = 0
-        totalYards();
         firstDown(); 
         totalDowns(); 
+        totalYards();
         downsLabel();
         document.getElementById("down").innerHTML=downs
         document.getElementById("togo").innerHTML=(10-currentYardage)
