@@ -282,64 +282,12 @@ $( document ).ready(function(){
         }
     }
 
-// if they did not gain 10 yards in 4 plays, this resets total yardage to 20, runs 1:30 off the clock and resets down and distance 
-
-$("#pass-btn").on("click", function() {
-    resetAudio();
-    passPlay(); 
-    totalYardage += passYardage
-    currentYardage += passYardage
-    passYardage = 0
-    firstDown();
-    totalYards();
-    totalDowns(); 
-    document.getElementById("down").innerHTML=downs
-    document.getElementById("togo").innerHTML=(10-currentYardage)
-    // document.getElementById("data_place").innerHTML=totalYardage
-    document.getElementById("points").innerHTML=totalPoints
-    console.log("current yards", currentYardage)
-    ballPosition();
-  });
-
-  $("#run-btn").on("click", function() {
-    runPlay();
-    totalYardage += runYardage
-    currentYardage += runYardage
-    runYardage = 0
-    totalYards();
-    firstDown(); 
-    totalDowns(); 
-    document.getElementById("down").innerHTML=downs
-    document.getElementById("togo").innerHTML=(10-currentYardage)
-    // document.getElementById("data_place").innerHTML=totalYardage
-    document.getElementById("points").innerHTML=totalPoints
-    console.log("current yards", currentYardage)
-    ballPosition();
-  });
-
-// functions to run time off the clock when either button is clicked
-function gameStart(){
-
-    // displayed timer when the game starts
-    let timer = moment.utc(totalTime).format("mm:ss")
-    console.log(timer);
-
-    // display it on the dom
-    $("#timer").text(timer);
-
-}
-
-function gameEnd(){
-    if (timer===0){
-        audioSkol.play();
-        $("#post-game-modal").css({'display':'block'});
-
     // this calcualtes whether the offense gained at least 10 yards in 4 plays and resets the downs to 1 if they did
     function firstDown (){
-        if (currentYardage >= 10) {
+        if (currentYardage >= 10 && totalYardage < 80) {
+            audioHorn.play();
             console.log("First Down!"); 
             $("#in-game-message").text("FIRST DOWN!!!");
-            audioHorn.play();
             downs = 1
             currentYardage = 0
         } else {
@@ -350,12 +298,15 @@ function gameEnd(){
     // if they did not gain 10 yards in 4 plays, this resets total yardage to 20, runs 1:30 off the clock and resets down and distance 
     function totalDowns(){
         if (downs > 4 && currentYardage < 10 ) {
-            audioBoo.play();
+           
             console.log("turnover")
             totalYardage = 20
             downs = 1
             currentYardage = 0
-            totalTime -= turnoverTime
+            totalTime -= turnoverTime;
+            if (totalTime > 0) {
+                audioBoo.play();
+            };
             possessionYards=0;
             $("#in-game-message").text("Turnover...");
         }
@@ -377,29 +328,30 @@ function gameEnd(){
         }
     }
 
-//CLICK pass or run buttons
-    $("#pass-btn").on("click", function() {
-        passPlay(); 
-        totalYardage += passYardage
-        currentYardage += passYardage
-        passYardage = 0
-        firstDown();
-        totalDowns();
-        totalYards();
-        downsLabel();
-        document.getElementById("down").innerHTML=downs
-        document.getElementById("togo").innerHTML=(10-currentYardage)
-        // document.getElementById("data_place").innerHTML=totalYardage
-        document.getElementById("points").innerHTML=totalPoints
-        console.log("current yards", currentYardage)
-        console.log("game yards = "+gameYards);
-        ballPosition();
-        decreaseTime();
-        gameEnd();
-    });
+$("#pass-btn").on("click", function() {
+    resetAudio();
+    passPlay(); 
+    totalYardage += passYardage
+    currentYardage += passYardage
+    passYardage = 0
+    firstDown();
+    totalDowns();
+    totalYards();
+    downsLabel();
+    document.getElementById("down").innerHTML=downs
+    document.getElementById("togo").innerHTML=(10-currentYardage)
+    // document.getElementById("data_place").innerHTML=totalYardage
+    document.getElementById("points").innerHTML=totalPoints
+    console.log("current yards", currentYardage)
+    console.log("game yards = "+gameYards);
+    ballPosition();
+    decreaseTime();
+    gameEnd();
+  });
 
-    $("#run-btn").on("click", function() {
-        runPlay();
+  $("#run-btn").on("click", function() {
+    resetAudio();
+    runPlay();
         totalYardage += runYardage
         currentYardage += runYardage
         runYardage = 0
@@ -416,64 +368,58 @@ function gameEnd(){
         ballPosition();
         decreaseTime();
         gameEnd();
-    });
+  });
 
 // functions to run time off the clock when either button is clicked
-    $("#close-btn").on("click", function(){
+$("#close-btn").on("click", function(){
 
-        // displayed timer when the game starts
-        let timer = moment.utc(totalTime).format("mm:ss")
-        console.log(timer);
+    // displayed timer when the game starts
+    let timer = moment.utc(totalTime).format("mm:ss")
+    console.log(timer);
 
-        // display it on the dom
-        $("#timer").text(timer);
-    }
+    // display it on the dom
+    $("#timer").text(timer);
 
-})
-// fucntion when button clicked 
-$("#pass-btn").on("click", function(){
-    resetAudio();
-
-
-    });
+});
 // Decrease timer for each play
-    const decreaseTime =function(){
-        //subtract 30sec for one play
-        totalTime -= gameTime;
-        console.log("Time Left: "+totalTime);
-        //display time remaining in mm:ss format on DOM
-        let timer = moment.utc(totalTime).format("mm:ss")
-        $("#timer").text(timer);
-    };
+const decreaseTime =function(){
+    //subtract 30sec for one play
+    totalTime -= gameTime;
+    console.log("Time Left: "+totalTime);
+    //display time remaining in mm:ss format on DOM
+    let timer = moment.utc(totalTime).format("mm:ss")
+    $("#timer").text(timer);
+};
 
 //Show post-game modal when time runs out
-    function gameEnd(){
-        if (totalTime<=0){
-            $("#post-game-modal").css({'visibility':'visible'});
-            document.getElementById("endPoints").innerHTML=totalPoints;
-            document.getElementById("endYards").innerHTML=gameYards;
-        }
+function gameEnd(){
+    if (totalTime<=0){
+        audioSkol.play();
+        $("#post-game-modal").css({'visibility':'visible'});
+        document.getElementById("endPoints").innerHTML=totalPoints;
+        document.getElementById("endYards").innerHTML=gameYards;
+    }
 
-    };
+};
 
-    $('#sub-btn').on("click", function(event){
-        event.preventDefault(); 
-        console.log("I clicked the button, Dad.")
+$('#sub-btn').on("click", function(event){
+    event.preventDefault(); 
+    console.log("I clicked the button, Dad.")
 
-        var newUser = {
-            username: $("#nameInput").val().trim(), 
-            points: $("#endPoints").val().trim(), 
-            yards:$("#endYards").val().trim()
-        }; 
+    var newUser = {
+        username: $("#nameInput").val().trim(), 
+        points: $("#endPoints").val().trim(), 
+        yards:$("#endYards").val().trim()
+    }; 
 
-        $.ajax("api/users", {
-            type: "POST", 
-            data: newUser
-        }) .then(
-            console.log("No you're a jerk!")
-        )
-    })
-    
+    $.ajax("api/users", {
+        type: "POST", 
+        data: newUser
+    }) .then(
+        console.log("No you're a jerk!")
+    )
+})
+
 
 
 }); //closes the on document ready
