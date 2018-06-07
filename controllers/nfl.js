@@ -76,6 +76,7 @@ module.exports = function(app) {
             yards: req.body.yards
         })
         .then(function(dbPost) { 
+            console.log('redirect???');
             // res.json(dbPost);
             // redirect to leaderboard
             res.redirect("/leaderboard");
