@@ -1,4 +1,4 @@
-INSERT INTO teams (team_name, O_rush_YPA, O_pass_YPA, D_rush_YPA, D_pass_YPR)
+teamsINSERT INTO teams (team_name, O_rush_YPA, O_pass_YPA, D_rush_YPA, D_pass_YPR)
 VALUES ("Los Angeles Chargers", 3.8, 7.8, 4.9, 10.4 );
 INSERT INTO teams (team_name, O_rush_YPA, O_pass_YPA, D_rush_YPA, D_pass_YPR)
 VALUES ("New England Patriots", 4.2, 7.9, 4.7, 11.8 );
