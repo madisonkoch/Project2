@@ -72,7 +72,8 @@ module.exports = function(app) {
         db.user.create({
             username: req.body.username,
             // ? Will we post after user has played and their score has been calculated?
-            points: req.body.points
+            points: req.body.points,
+            yards: req.body.yards
         })
         .then(function(dbPost) { 
             // res.json(dbPost);
@@ -80,6 +81,8 @@ module.exports = function(app) {
             res.redirect("/leaderboard");
         });
     });
+
+    // app.post
     
     // app.post("/api/teams", function(req, res){
     //     //response
