@@ -4,7 +4,7 @@
   "description": "Group Project",
   "main": "server.js",
   "directories": {
-    "test": "./public/assets/js/test"
+    "test": "test"
   },
   "scripts": {
     "test": "mocha || true",
