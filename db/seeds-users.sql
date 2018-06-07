@@ -1,20 +1,20 @@
-INSERT INTO users (username, points)
-VALUES ("Abdisa", 10);
-INSERT INTO users (username, points)
-VALUES ("Solomon", 17);
-INSERT INTO users (username, points)
-VALUES ("Madison", 16);
-INSERT INTO users (username, points)
-VALUES ("Robert", 9);
-INSERT INTO users (username, points)
-VALUES ("Cavan", 9);
-INSERT INTO users (username, points)
-VALUES ("Gregg",18);
-INSERT INTO users (username, points)
-VALUES ("Crocodile23", 93);
-INSERT INTO users (username, points)
-VALUES ("VikesFan", 157);
-INSERT INTO users (username, points)
-VALUES ("PackersSuck", 77);
-INSERT INTO users (username, points)
-VALUES ("SeeHawksLose", 83);
+INSERT INTO users (username, points, yards)
+VALUES ("Abdisa", 10, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Solomon", 17, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Madison", 16, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Robert", 9, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Cavan", 9, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Gregg",18, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("Crocodile23", 93, 57);
+INSERT INTO users (username, points, yards)
+VALUES ("VikesFan", 157, 206);
+INSERT INTO users (username, points, yards)
+VALUES ("PackersSuck", 77, 500);
+INSERT INTO users (username, points, yards)
+VALUES ("SeeHawksLose", 83, 200);
