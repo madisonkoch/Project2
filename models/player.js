@@ -4,8 +4,12 @@ var Sequelize = require("Sequelize");
 
 module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define("user", {
-    username: {type: Sequelize.STRING, primaryKey: true},
-    points: DataTypes.INTEGER
+    username: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    },
+    points: DataTypes.INTEGER,
+    yards: DataTypes.INTEGER
   }, {
     timestamps: false
   });

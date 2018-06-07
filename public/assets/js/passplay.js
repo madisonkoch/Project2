@@ -408,15 +408,18 @@ $('#sub-btn').on("click", function(event){
 
     var newUser = {
         username: $("#nameInput").val().trim(), 
-        points: $("#endPoints").val().trim(), 
-        yards:$("#endYards").val().trim()
+        points: totalPoints,
+        yards: gameYards
     }; 
-
+    console.log(newUser);
     $.ajax("api/users", {
         type: "POST", 
         data: newUser
-    }) .then(
-        console.log("No you're a jerk!")
+    }) .then( function() {
+        location.href = "/leaderboard";
+        console.log("redirect");
+    }
+        
     )
 })
 
