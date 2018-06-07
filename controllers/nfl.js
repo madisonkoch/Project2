@@ -73,10 +73,11 @@ module.exports = function(app) {
         db.user.create({
             username: req.body.username,
             // ? Will we post after user has played and their score has been calculated?
-            points: req.body.points
+            points: req.body.points,
+            yards: req.body.yards
         })
         .then(function(dbPost) { 
-            // res.json(dbPost);
+            res.json(dbPost);
             // redirect to leaderboard
             res.redirect("/leaderboard");
         });
