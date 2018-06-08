@@ -32,7 +32,7 @@
         //             $('.non-game-main').css('height', (newH)+'px');
         //         }
         //     })          
-        // });
+        });
 
 //Game Page
     //Make lineup-div entrie height of screen
