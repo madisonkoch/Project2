@@ -1,5 +1,3 @@
-var Sequelize = require("Sequelize");
-
 module.exports = function(sequelize, DataTypes) {
   var teams = sequelize.define("teams", {
     team_name: {type: Sequelize.STRING, primaryKey: true},
