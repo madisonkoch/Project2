@@ -1,13 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-
-    "password": "#Rowgophs8",
-
-=======
-    "password": "",
->>>>>>> 3920874d1ce0c4cb4e050e6816bd72bfd4b11959
+    "password": "Koji@191991",
     "database": "NFL_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
