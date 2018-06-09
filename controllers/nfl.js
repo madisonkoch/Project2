@@ -5,7 +5,7 @@
 // var path = require("path");
 // Import model to use its databse functions
 var db = require("../models");
-var Sequelize = require("Sequelize");
+var Sequelize = require("sequelize");
 var express = require("express");
 
 module.exports = function(app) {

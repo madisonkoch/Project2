@@ -1,10 +1,6 @@
 {
   "name": "project2",
   "version": "1.0.0",
-  "engines": {
-    "node": "8.9.4",
-    "npm": "5.6.0"
-  },
   "description": "Group Project",
   "main": "server.js",
   "directories": {

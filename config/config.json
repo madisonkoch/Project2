@@ -1,13 +1,16 @@
 {
   "development": {
     "username": "root",
-    "password": "Koji@191991",
-    "database": "NFL_DB",
+    "password": "hello123",
+    "database": "football",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "use_env_variable": "JAWSDB_URL",
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
