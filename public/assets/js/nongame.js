@@ -16,7 +16,23 @@
                 $('.non-game-main').css('height', (newH)+'px');
             }
         })          
-    });
+        // $(function(){
+        //     var bodyH = $(body).height();
+        //     var divH = $('.non-game-main').height();
+        //     if(bodyH > divH) {                            
+        //         $('.non-game-main').css({'height':($(body).height())+'px'});
+        //     }                                                                               
+        //     $(body).resize(function(){
+        //         var bodyH = $(body).height();
+        //         var divH = $('.non-game-main').height();
+        //         var differenceH = bodyH - divH;
+        //         var newH = divH + differenceH;
+        //         var truecontentH = $('#truecontent').height();
+        //         if(bodyH > truecontentH) {
+        //             $('.non-game-main').css('height', (newH)+'px');
+        //         }
+        //     })          
+        });
 
 //Game Page
     //Make lineup-div entrie height of screen
