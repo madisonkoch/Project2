@@ -371,6 +371,11 @@
         width: 265px;
     }
 }
+/* @media only screen and (min-height: 900px){
+    body{
+        height:900px;
+    }
+} */
 
 /* Overwrite existing styles */
 a:hover{
@@ -381,4 +386,3 @@ a:hover{
 .control-button:hover {
     background-color: blue;
 }
-

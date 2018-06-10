@@ -1,9 +1,8 @@
 // Import the ORM to create functions that will interact with the database.
 // var orm = require(""../config/orm.js");
-var Sequelize = require("Sequelize");
-
-module.exports = function(sequelize, DataTypes) {
-  var user = sequelize.define("user", {
+var Sequelize = require('sequelize');
+module.exports = function (Sequelize, DataTypes) {
+  var user = Sequelize.define("user", {
     username: {
     type: DataTypes.STRING,
     allowNull: false,
