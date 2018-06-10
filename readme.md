@@ -7,6 +7,8 @@ Footballer Is a full-stack application backend utilizing Node.js,Express, Sequel
 
 ## Demo
 
+Play the game [here] (https://footballer-app.herokuapp.com/)
+
 ## Installation
 
 To run the application locally, first clone this repository 
